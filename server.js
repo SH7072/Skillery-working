@@ -38,4 +38,12 @@ app.get('/registration', function(req, res) {
     res.render('registration');
 })
 
+app.get('/learner-navbar', function(req, res) {
+    res.render('learner-navbar');
+})
+
+app.get('/footer', function(req, res) {
+    res.render('footer');
+})
+
 app.listen(8080);
