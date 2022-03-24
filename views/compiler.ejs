@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./compiler.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Compiler</title>
+</head>
+
+<body>
+    <%- include('navbar',{active: "compiler"}); -%>
+    <div class="main-container text-center">
+        <h2>Code, Compile & Run</h2>
+        <p class="sub-heading">Compile & run your code with the CodeChef online IDE. Our online compiler supports multiple programming languages like Python, C++, C, Kotlin, NodeJS, and many more.</p>
+        <textarea name="code-area" id="code-area" cols="140" rows="15" placeholder="Write your code" class="mx-auto my-4 d-block"></textarea>
+        <div class="m-auto">
+            <select name="form-select" id="language-select">
+                <option value="0">Python</option>
+                <option value="4">Javascript</option>
+                <option value="7">C</option>
+                <option value="77">CPP</option>
+                <option value="8">JAVA</option>
+            </select>
+            <button type="button" class="btn" id="submit">Submit</button>    
+        </div>
+        <textarea name="output-area" id="output-area" cols="140" rows="10" readonly="true" placeholder="Your output" class="mx-auto my-4  d-block"></textarea>
+    </div>
+    <%- include('footer') -%>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

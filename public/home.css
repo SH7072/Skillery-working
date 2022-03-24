@@ -1,0 +1,97 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hero-image {
+  background-image: linear-gradient(rgba(238,101,103,0.5), rgba(238,101,103,0.75)),url("./resources/bgimage.jpeg");
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: centre;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text p{
+  font-size: 18px;
+}
+
+.hero-text h1{
+  font-size: 50px;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: rgb(238,101,103);
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: rgb(238,101,103);
+  color: white;
+}
+
+#intrested {
+  background: rgb(248,249,250);
+  color: black;
+  padding: 25px;
+  width: 100vw;
+}
+
+.image__custom {
+  width: 40%;
+  height: auto;
+}
+
+.pinkButtons {
+    background-color: rgba(238,101,103,0.5) !important;
+}
+
+.headerImages {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.imageshort{
+    margin: 25px 0;
+    width: 300px;
+    height: 300px;
+}
+
+@media (max-width: 940px){
+  .hero-text h1{
+    font-size: 30px;
+  }
+
+  .hero-text p{
+    font-size: 15px;
+  }
+
+  .colegeimage{
+    text-align: center;
+  }
+  .heading-1{
+    margin-top: 15px;
+  }
+
+  .pinkButtons{
+    margin-bottom: 15px;
+  }
+}

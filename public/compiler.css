@@ -1,0 +1,12 @@
+.sub-heading{
+    width: 60vw;
+    margin: auto;
+}
+
+textarea{
+    width: 60vw;
+}
+
+button{
+    background-color: rgb(238,101,103) !important;
+}
