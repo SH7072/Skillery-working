@@ -46,4 +46,8 @@ app.get('/footer', function(req, res) {
     res.render('footer');
 })
 
+app.get('/learner-home', function(req, res) {
+    res.render('learner-home');
+})
+
 app.listen(8080);
