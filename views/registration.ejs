@@ -28,45 +28,30 @@
                                             <h4 class="m-3 pb-1">We are Skillery</h4>
                                         </div>
 
-                                        <form>
+                                        <form id="reg-form">
                                             <p>Please fill the given form</p>
-
+                                            
                                             <div class="form-outline mb-4">
-                                                <input type="email" id="username" name="username" class="form-control"
-                                                    placeholder="Full Name" />
+                                                <input type="email" id="email" name="email" class="form-control"
+                                                    placeholder="Email" />
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="degree" name="degree" class="form-control"
-                                                placeholder = "Degree" />
+                                                <input type="name" id="username" name="username" class="form-control"
+                                                    placeholder="Username" />
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="college" name="college" class="form-control"
-                                                placeholder = "College" />
+                                                <input type="password" id="password" name="password" class="form-control"
+                                                    placeholder="Password" />
                                             </div>
 
-                                            <div class="form-outline mb-4">
-                                                <input type="date" id="pyear" name="pyear" class="form-control"
-                                                placeholder = "Passing Year" />
-                                            </div>
-
-                                            <div class="form-outline mb-4">
-                                                <input type="tell" id="tell" name="tell" class="form-control"
-                                                placeholder = "Tell us something about yourself"/>
-                                            </div>
-
-                                            <div class="form-outline mb-4">
-                                                <input type="help" id="help" name="help" class="form-control"
-                                                placeholder = "How can our course help you?"/>
-                                            </div>
-
+                                            
                                             <div class="text-center pt-1 mb-2 pb-1">
                                                 <button class="btn btn-primary btn-block login fa-lg gradient-custom-2 mb-3"
-                                                    type="button">Submit</button>
+                                                    type="submit">Submit</button>
                                             </div>
                                         </form>
-                                        <h5 m-auto text-center>We will get back to you soon.</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -85,7 +70,8 @@
             </div>
         </section>
         <%- include('footer') -%>
-            <script src="../Bootstrap/js/bootstrap.js"></script>
+        <script src="./javascripts/registration.js"></script>
+        <script src="../Bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

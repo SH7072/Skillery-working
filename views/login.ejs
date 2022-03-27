@@ -28,11 +28,21 @@
                                             <h4 class="m-3 pb-1">We are Skillery</h4>
                                         </div>
 
-                                        <form>
+                                        <form id = "login">
                                             <p>Please login to your account</p>
+                                            
+                                            <div class="form-outline mb-4">
+                                                <span>Login as </span>
+                                                <select name="value" id="value">
+                                                    <option value="1">Learner</option>
+                                                    <option value="2">Instructor</option>
+                                                    <option value="3">Company</option>
+                                                    <option value="4">Admin</option>
+                                                </select>
+                                            </div>
 
                                             <div class="form-outline mb-4">
-                                                <input type="email" id="username" class="form-control"
+                                                <input type="username" id="username" class="form-control"
                                                     placeholder="Username" />
                                             </div>
 
@@ -43,7 +53,7 @@
 
                                             <div class="text-center pt-1 mb-5 pb-1">
                                                 <button class="btn btn-primary btn-block login fa-lg gradient-custom-2 mb-3"
-                                                    type="button">Log in</button>
+                                                    type="submit" id="submit">Log in</button>
                                                 <a class="text-muted" href="#!">Forgot password?</a>
                                             </div>
                                         </form>
@@ -65,7 +75,8 @@
             </div>
         </section>
         <%- include('footer') -%>
-            <script src="../Bootstrap/js/bootstrap.js"></script>
+        <<script src="./javascripts/login.js"></script>
+        <script src="../Bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>
