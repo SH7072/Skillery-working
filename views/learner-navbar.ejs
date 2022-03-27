@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="shortcut icon" href="./resources/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./learner-navbar.css">
+    <link rel="shortcut icon" href="./resources/Logo.svg" type="image/x-icon">
+<script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="navbar">
+    <nav class="navbar navbar-expand-lg header-nav navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./resources/Logo.svg" alt="" width="30" height="30"
+          class="d-inline-block align-text-middle" />
+        <img src="./resources/LogoText.svg" alt="" width="60" height="20" class="d-inline-block align-text-middle"></a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="toggler-icon top-bar"></span>
+        <span class="toggler-icon middle-bar"></span>
+        <span class="toggler-icon bottom-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-lg-end" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link nav-link-ltr" title="Dashboard" aria-current="page" href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-ltr" title="Discussions" aria-current="page" href="#"><i class="fa fa-message"></i> Discussions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-ltr" title="Statistics" aria-current="page" href="#"><i class="fa fa-chart-column"></i> Compiler</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-hover" id="username" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-hover="dropdown" aria-expanded="false" aria-current="page" href="#">tanmay umredkar</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </header>
+  <script src="./Bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
