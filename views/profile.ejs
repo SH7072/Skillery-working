@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="shortcut icon" href="../../../resources/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../../Bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <nav class="navbar navbar-expand-lg header-nav navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="../../../resources/Logo.svg" alt="" width="30" height="30"
+                        class="d-inline-block align-text-middle" />
+                    <img src="../../../resources/LogoText.svg" alt="" width="60" height="20"
+                        class="d-inline-block align-text-middle"></a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="toggler-icon top-bar"></span>
+                    <span class="toggler-icon middle-bar"></span>
+                    <span class="toggler-icon bottom-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-ltr" title="Dashboard" aria-current="page" href="#"><i
+                                    class="fa fa-newspaper-o" aria-hidden="true"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-ltr" title="Discussions" aria-current="page" href="#"><i
+                                    class="fa fa-message"></i> Discussions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-ltr" title="Statistics" aria-current="page" href="#"><i
+                                    class="fa fa-chart-column"></i> Compiler</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-hover" id="username" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" data-bs-hover="dropdown" aria-expanded="false"
+                                aria-current="page" href="#">tanmay umredkar</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+    </header>
+    <br><br>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3 order-md-2" id="profilepic">
+                <img src="../../../resources/avataricons/2co-f.svg" alt="Name">
+            </div>
+            <div class="col-md-9 order-md-1" id="Sname">
+                Tanmay Rajesh Umredkar
+                <button> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>
+            </div>
+        </div>
+        <div class="about">
+            <div class="box">
+                <div class="heading">Skills</div>
+                <button><i class="fa-solid fa-plus"></i>add skills</button>
+            </div>
+            <div class="box">
+                <div class="heading">Projects</div>
+                <button><i class="fa-solid fa-plus"></i>add a project</button>
+            </div>
+            <div class="box">
+                <div class="heading">Work Experience</div>
+                <button><i class="fa-solid fa-plus"></i>add an experience</button>
+            </div>
+            <div class="box">
+                <div class="heading">Certifications</div>
+                <button><i class="fa-solid fa-plus"></i>add a certification</button>
+            </div>
+            <div class="box">
+                <div class="heading">Academics</div>
+                <button><i class="fa-solid fa-plus"></i>add academic info</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="content.js"></script>
+    <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
+    <script src="../../../Bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

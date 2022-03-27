@@ -70,9 +70,6 @@ nav .menu-btn i {
   left: 0%;
 }
 
-.active {
-  color: blue;
-}
 
 @media (max-width: 940px){
   nav .menu-btn i {

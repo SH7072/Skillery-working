@@ -208,6 +208,12 @@ app.get('/footer', function(req, res) {
     res.render('footer');
 })
 
+app.get('/learner-home', function(req, res) {
+    res.render('learner-home');
+})
+
+app.listen(8080);
+
 app.get('/chatbotRoom', function(req, res) {
     res.render('chatbotRoom');
 })
@@ -230,4 +236,3 @@ app.get('/learners-list', function(req, res, next) {
 	
   });
 
-app.listen(8080);
