@@ -1,29 +1,34 @@
-const express = require('express');
-const path = require('path')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const User = require('./model/user')
-const Instructor = require('./model/instructor')
-const Company = require('./model/company')
-const Admin = require('./model/admin')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const Learner = require("./model/learner");
+const Instructor = require("./model/instructor");
+const Company = require("./model/company");
+const Admin = require("./model/admin");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-var learnerModel = require('./model/learner')
-var learner =learnerModel.find({})
+let learnerModel = require("./model/learner");
 
-const JWT_SECRET = 'abhs@vb#s3g%f$fgmnabkjufyfc@ijhu#HB$BHB$b5%jhbB%gb%Hg%b'
 
-mongoose.connect('mongodb+srv://array2002:Abhay%40123@cluster0.gcftg.mongodb.net/login-app-db', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-}).then(d=>console.log("sucesss"))
+const JWT_SECRET = "abhs@vb#s3g%f$fgmnabkjufyfc@ijhu#HB$BHB$b5%jhbB%gb%Hg%b";
 
-const app = express()
+mongoose
+  .connect(
+    "mongodb+srv://array2002:Abhay%40123@cluster0.gcftg.mongodb.net/login-app-db",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then((d) => console.log("sucesss"));
 
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json())
+const app = express();
+
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
 
 //Authentication
 
@@ -231,11 +236,34 @@ app.get('/learner-profile', function(req, res) {
 
 // learners-list view
 
-app.get('/learners-list', function(req, res, next) {
-	learner.exec(function(err,data){
-  if(err) throw err;
-  res.render('learners-list', { title: 'Learner Records', records:data });
-	});
-	
+app.get("/learner-home", function (req, res) {
+  const token= req.body.token;
+  console.log(token);
+  // try {
+	// 	const learner = jwt.verify(token, JWT_SECRET)
+
+	// 	const _id = learner.id
+
+	// 	console.log(_id);
+	// 	res.json({ status: 'ok' })
+	// } catch (error) {
+	// 	console.log(error)
+	// 	res.json({ status: 'error', error: ';))' })
+	// }
+  res.render("learner-home");
+});
+
+app.get('/profile', function(req, res) {
+  res.render("profile");
+})
+app.get("/learners-list", function (req, res, next) {
+  let learner = learnerModel.find({});
+  learner.exec(function (err, data) {
+    if (err) throw err;
+    res.render("learners-list", { title: "Learner Records", records: data });
   });
+});
+
+app.listen(8080);
+
 

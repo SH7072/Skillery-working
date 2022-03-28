@@ -14,9 +14,11 @@
 
 <body>
 
-    <h1><%= title %></h1>
-    <h3>List of students</h3>
-
+  <%- include('learner-navbar'); -%>
+  <br>
+  <br>
+    <div class="container">
+      <h1><%= title %></h1>
     <table class="table table-striped table-primary">
         <thead>
           <tr>
@@ -25,7 +27,7 @@
             <th>College</th>
             <th>Degree</th>
             <th>Passing year</th>
-            <th>Total Score</th>
+            <th>Total Scores</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +48,8 @@
             <% } %>
         </tbody>
       </table>
- 
+    </div>
+   <%- include('footer'); -%>
 
     <script src="../Bootstrap/js/bootstrap.js"></script>
 </body>
