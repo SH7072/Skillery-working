@@ -225,6 +225,9 @@ app.get('/chat', function(req, res) {
 app.get('/admin', function(req, res) {
     res.render('admin');
 })
+app.get('/learner-profile', function(req, res) {
+    res.render('profile');
+})
 
 // learners-list view
 
