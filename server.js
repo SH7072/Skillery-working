@@ -32,217 +32,207 @@ app.use(bodyParser.json());
 
 //Authentication
 
-app.post("/api/register", async (req, res) => {
-  const {
-    email,
-    username,
-    password: plainTextPassword,
-    fullname,
-    college,
-    degree,
-    passing,
-  } = req.body;
+app.post('/api/register', async (req, res) => {
+	const { email, username, password: plainTextPassword } = req.body
 
-  if (!email || typeof email !== "string") {
-    return res.json({ status: "error", error: "Invalid username" });
-  }
 
-  if (!username || typeof username !== "string") {
-    return res.json({ status: "error", error: "Invalid username" });
-  }
+	if (!email || typeof email !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid username' })
+	}
 
-  if (!plainTextPassword || typeof plainTextPassword !== "string") {
-    return res.json({ status: "error", error: "Invalid password" });
-  }
+	if (!username || typeof username !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid username' })
+	}
 
-  if (plainTextPassword.length < 5) {
-    return res.json({
-      status: "error",
-      error: "Password too small. Should be atleast 6 characters",
-    });
-  }
+	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid password' })
+	}
 
-  const password = await bcrypt.hash(plainTextPassword, 10);
+	if (plainTextPassword.length < 5) {
+		return res.json({
+			status: 'error',
+			error: 'Password too small. Should be atleast 6 characters'
+		})
+	}
 
-  try {
-    const response = await Learner.create({
-      email,
-      username,
-      password,
-      fullname,
-      college,
-      degree,
-      passing,
-    });
-    console.log("User created successfully: ", response);
-  } catch (error) {
-    if (error.code === 11000) {
-      // duplicate key
-      return res.json({
-        status: "error",
-        error: "Username/email id already in use",
-      });
-    }
-    throw error;
-  }
+	const password = await bcrypt.hash(plainTextPassword, 10)
 
-  res.json({ status: "ok" });
-});
+	try {
+		const response = await User.create({
+			email,
+			username,
+			password
+		})
+		console.log('User created successfully: ', response)
+	} catch (error) {
+		if (error.code === 11000) {
+			// duplicate key
+			return res.json({ status: 'error', error: 'Username or emailid already in use' })
+		}
+		throw error
+	}
 
-app.post("/api/learner-login", async (req, res) => {
-  const { username, password } = req.body;
-  // data shouldn't be in mongodb format
-  const learner = await Learner.findOne({ username }).lean();
+	res.json({ status: 'ok' })
+})
 
-  if (!learner) {
-    return res.json({ status: "error", error: "Invalid username/password" });
-  }
 
-  if (await bcrypt.compare(password, learner.password)) {
-    // the username, password combination is successful
-    const token = jwt.sign(
-      {
-        id: learner._id,
-        username: learner.username,
-      },
-      JWT_SECRET
-    );
+app.post('/api/user-login', async (req, res) => {
+	const { username, password } = req.body
+	// data shouldn't be in mongodb format
+	const user = await User.findOne({ username }).lean()
 
-    return res.json({ status: "ok", data: token });
-  }
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
 
-  res.json({ status: "error", error: "Invalid username/password" });
-});
+	if (await bcrypt.compare(password, user.password)) {
+		// the username, password combination is successful
+		const token = jwt.sign(
+			{
+				id: user._id,
+				username: user.username
+			},
+			JWT_SECRET
+		)
 
-app.post("/api/instructor-login", async (req, res) => {
-  const { username, password } = req.body;
-  // data shouldn't be in mongodb format
-  const instructor = await Instructor.findOne({ username }).lean();
+		return res.json({ status: 'ok', data: token })
+	}
 
-  if (!instructor) {
-    return res.json({ status: "error", error: "Invalid username/password" });
-  }
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
 
-  if (await bcrypt.compare(password, instructor.password)) {
-    // the username, password combination is successful
-    const token = jwt.sign(
-      {
-        id: instructor._id,
-        username: instructor.username,
-      },
-      JWT_SECRET
-    );
+app.post('/api/instructor-login', async (req, res) => {
+	const { username, password } = req.body
+	// data shouldn't be in mongodb format
+	const instructor = await Instructor.findOne({ username }).lean()
 
-    return res.json({ status: "ok", data: token });
-  }
+	if (!instructor) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
 
-  res.json({ status: "error", error: "Invalid username/password" });
-});
+	if (await bcrypt.compare(password, instructor.password)) {
+		// the username, password combination is successful
+		const token = jwt.sign(
+			{
+				id: instructor._id,
+				username: instructor.username
+			},
+			JWT_SECRET
+		)
 
-app.post("/api/company-login", async (req, res) => {
-  const { username, password } = req.body;
-  // data shouldn't be in mongodb format
-  const company = await Company.findOne({ username }).lean();
+		return res.json({ status: 'ok', data: token })
+	}
 
-  if (!company) {
-    return res.json({ status: "error", error: "Invalid username/password" });
-  }
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
 
-  if (await bcrypt.compare(password, company.password)) {
-    // the username, password combination is successful
-    const token = jwt.sign(
-      {
-        id: company._id,
-        username: company.username,
-      },
-      JWT_SECRET
-    );
+app.post('/api/company-login', async (req, res) => {
+	const { username, password } = req.body
+	// data shouldn't be in mongodb format
+	const company = await Company.findOne({ username }).lean()
 
-    return res.json({ status: "ok", data: token });
-  }
+	if (!company) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
 
-  res.json({ status: "error", error: "Invalid username/password" });
-});
+	if (await bcrypt.compare(password, company.password)) {
+		// the username, password combination is successful
+		const token = jwt.sign(
+			{
+				id: company._id,
+				username: company.username
+			},
+			JWT_SECRET
+		)
 
-app.post("/api/admin-login", async (req, res) => {
-  const { username, password } = req.body;
-  // data shouldn't be in mongodb format
-  const admin = await Admin.findOne({ username }).lean();
+		return res.json({ status: 'ok', data: token })
+	}
 
-  if (!admin) {
-    return res.json({ status: "error", error: "Invalid username/password" });
-  }
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
 
-  if (await bcrypt.compare(password, admin.password)) {
-    // the username, password combination is successful
-    const token = jwt.sign(
-      {
-        id: admin._id,
-        username: admin.username,
-      },
-      JWT_SECRET
-    );
+app.post('/api/admin-login', async (req, res) => {
+	const { username, password } = req.body
+	// data shouldn't be in mongodb format
+	const admin = await Admin.findOne({ username }).lean()
 
-    return res.json({ status: "ok", data: token });
-  }
+	if (!admin) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
 
-  res.json({ status: "error", error: "Invalid username/password" });
-});
+	if (await bcrypt.compare(password, admin.password)) {
+		// the username, password combination is successful
+		const token = jwt.sign(
+			{
+				id: admin._id,
+				username: admin.username
+			},
+			JWT_SECRET
+		)
 
-app.get("/", function (req, res) {
-  res.render("home");
-});
+		return res.json({ status: 'ok', data: token })
+	}
 
-app.get("/aboutus", function (req, res) {
-  res.render("aboutus");
-});
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
 
-app.get("/learner", function (req, res) {
-  res.render("learner");
-});
+app.get('/', function(req, res) {
+    res.render('home');
+})
 
-app.get("/college", function (req, res) {
-  res.render("college");
-});
+app.get('/aboutus', function(req, res) {
+    res.render('aboutus');
+})
 
-app.get("/company", function (req, res) {
-  res.render("company");
-});
+app.get('/learner', function(req, res) {
+    res.render('learner');
+})
 
-app.get("/compiler", function (req, res) {
-  res.render("compiler");
-});
+app.get('/college', function(req, res) {
+    res.render('college');
+})
 
-app.get("/login", function (req, res) {
-  res.render("login");
-});
+app.get('/company', function(req, res) {
+    res.render('company');
+})
 
-app.get("/registration", function (req, res) {
-  res.render("registration");
-});
+app.get('/compiler', function(req, res) {
+    res.render('compiler');
+})
 
-app.get("/footer", function (req, res) {
-  res.render("footer");
-});
+app.get('/login', function(req, res) {
+    res.render('login');
+})
 
-app.get("/chatbot", function (req, res) {
-  res.render("chatbotmain");
-});
+app.get('/registration', function(req, res) {
+    res.render('registration');
+})
 
-app.get("/chatprivate", function (req, res) {
-  res.render("chatprivate");
-});
-app.get("/chatroom", function (req, res) {
-  res.render("chatroom");
-});
 
-app.get("/admin", function (req, res) {
-  res.render("admin");
-});
+app.get('/footer', function(req, res) {
+    res.render('footer');
+})
 
-app.get("/discussions", function (req, res) {
-  res.render("discussions");
-});
+app.get('/learner-home', function(req, res) {
+    res.render('learner-home');
+})
+
+app.listen(8080);
+
+app.get('/chatbotRoom', function(req, res) {
+    res.render('chatbotRoom');
+})
+
+app.get('/chat', function(req, res) {
+    res.render('chat');
+})
+
+app.get('/admin', function(req, res) {
+    res.render('admin');
+})
+app.get('/learner-profile', function(req, res) {
+    res.render('profile');
+})
 
 // learners-list view
 
@@ -275,3 +265,5 @@ app.get("/learners-list", function (req, res, next) {
 });
 
 app.listen(8080);
+
+
