@@ -6,7 +6,7 @@ const form = document.getElementById('login')
 			const password = document.getElementById('password').value
             const option = document.getElementById('value').value
             if(option == 1){
-                const result = await fetch('/api/user-login', {
+                const result = await fetch('/api/learner-login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -22,6 +22,7 @@ const form = document.getElementById('login')
                     console.log('Got the token: ', result.data)
                     localStorage.setItem('token', result.data)
                     alert('Success')
+                    window.location.href = "/learner-home";
                 } else {
                     alert(result.error)
                 }
