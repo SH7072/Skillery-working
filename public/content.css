@@ -1,0 +1,87 @@
+.square {
+    position: relative;
+    box-shadow: 0px 0px 10px 0px rgba(153, 153, 153, 0.5);
+    margin: 20px;
+    border-radius: 10px;
+    width: 70%;
+    padding: 10px;
+  }
+  .square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  .square:hover{background-color:rgb(202, 86, 88);
+    color: white;
+  }
+  .square h1 {
+    /* color: #fff; */
+    font-size: unset;
+  }
+  .square .sr {
+    text-align: left;
+    vertical-align: top;
+    float: left;
+  }
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .carousel {
+      border-left: 1px solid rgb(214, 214, 214);
+      border-right: 1px solid rgb(214, 214, 214);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .content .C_progress {
+      text-align: right; margin-right: 20px;
+      vertical-align: top;
+      float: right;
+      font-family: "Monaco", sans-serif;
+      font-size: 10px;
+      font-style:bold ;
+      font-weight: 700;
+  }
+  .week {
+      position: absolute;
+      text-align:left;
+      float: left;
+      bottom: 20px;
+      left: 5px;
+      font-family: "Monaco", sans-serif;
+      font-size: 16px;
+  
+  }
+  .heading {
+  border-bottom: 2px solid rgba(214, 214, 214, 0.5);
+  padding: 0px 100px 0px 100px;
+  }
+  .course {
+    
+  display: inline-block;
+  }
+  
+  .haha {
+    display: inline-block;
+  }
+  
+  .course h1{
+    font-size: 16px;
+    text-transform: ellipsis;
+    font-weight: 700;
+  }
+  .course h4{
+    font-size: 13px;
+    font-weight: 700;  
+  }
+  .totalProgress{
+    display: inline-block;
+  }
+  #accordionFlushExample{
+    padding: 10px 15% 10px 15%;
+  }
+  
