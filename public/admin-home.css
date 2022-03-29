@@ -25,6 +25,10 @@
     justify-content: center;
     margin:15px;
     width:70%;
+    margin-top:50px;
+    margin-bottom:50px;
+    padding-top:50px;
+    padding-bottom:50px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(92, 92, 92);
 }
@@ -74,6 +78,10 @@
     justify-content: center;
     margin:15px;
     width:70%;
+    margin-top:50px;
+    margin-bottom:50px;
+    padding-top:50px;
+    padding-bottom:50px;
     color: white;
     text-decoration: none;
     border: 1px solid 10px rgb(0, 0, 0);
