@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="./login.css">
     <link rel="shortcut icon" href="./resources/Logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Registration</title>
+    <title>Contact us</title>
 </head>
 
 <body>
-    <%- include('navbar',{active: "registration"}); -%>
+    <%- include('navbar',{active: "contact-us"}); -%>
         <section class="h-100 gradient-form" style="background-color: #eee;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -29,21 +29,11 @@
                                         </div>
 
                                         <form id="reg-form">
-                                            <p>Please fill the given form</p>
+                                            <p>Contact us today, and get reply with in 24 hours!</p>
                                             
                                             <div class="form-outline mb-4">
                                                 <input type="email" id="email" name="email" class="form-control"
-                                                    placeholder="Email" />
-                                            </div>
-
-                                            <div class="form-outline mb-4">
-                                                <input type="text" id="username" name="username" class="form-control"
-                                                    placeholder="Username" />
-                                            </div>
-
-                                            <div class="form-outline mb-4">
-                                                <input type="password" id="password" name="password" class="form-control"
-                                                    placeholder="Password" />
+                                                    placeholder="Email" required/>
                                             </div>
 
                                             <div class="form-outline mb-4">
@@ -52,20 +42,10 @@
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="college" name="college" class="form-control"
-                                                    placeholder="College" />
+                                                <textarea placeholder="Type your Message Here...." class="form-control" required></textarea>
                                             </div>
 
-                                            <div class="form-outline mb-4">
-                                                <input type="text" id="degree" name="degree" class="form-control"
-                                                    placeholder="Degree" />
-                                            </div>
-
-                                            <div class="form-outline mb-4">
-                                                <input type="year" id="year" name="year" class="form-control"
-                                                    placeholder="Passing Year" />
-                                            </div>
-
+                                            
                                             
                                             <div class="text-center pt-1 mb-2 pb-1">
                                                 <button class="btn btn-primary btn-block login fa-lg gradient-custom-2 mb-3"

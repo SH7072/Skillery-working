@@ -6,6 +6,13 @@
   .login{
       width: 100%;
   }
+
+  textarea {
+    height:100px;
+    width: 100%;
+    max-width:100%;
+    resize:none;
+  }
   
   @media (min-width: 768px) {
     .gradient-form {

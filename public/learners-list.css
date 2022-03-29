@@ -1,0 +1,90 @@
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	font: 16px/1.2 "Roboto", sans-serif;
+	color: #333;
+}
+a {
+	display: inline-block;
+	color: #333;
+	text-decoration: none;
+}
+
+
+/* container */
+.container {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	background-color: white;
+    
+	box-shadow: rgba(0, 0, 0, 0.637) 0px 5px 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	overflow: hidden;
+}
+
+/* leaderboard */
+.leaderboard {
+	background: linear-gradient(to bottom, #3a404d, #181c26);
+}
+
+/* head */
+.leaderboard .head {
+	padding: 20px 16px;
+	color: snow;
+	font-size: 20px;
+	text-align: center;
+}
+.leaderboard .head h1 {
+    border-bottom: 2px solid white;
+	display: inline-block;
+	margin-left: 4px;
+}
+
+/* body */
+.leaderboard .body {
+	color: snow;
+	font-size: 20px;
+}
+@media all and (max-width: 250px) {
+    .mobHide {
+      display: none;
+    }
+
+  }
+  @media screen and (min-width:1000px){
+      .container{
+          width: 60%;
+      }
+  }
+.score{
+    margin-left: -20px;
+}
+
+.rowl{
+    display: flex;
+    
+    height: auto;
+    padding: 10px;
+    
+    margin: 4px 4px 4px 4px;
+    background: #e0574f;
+}
+
+.add{
+    width : 90vw; 
+    height: auto;
+    padding: 10px;
+    margin: 4px 4px 4px 4px;
+    background: #e0574f;
+}

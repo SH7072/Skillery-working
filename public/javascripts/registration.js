@@ -9,6 +9,8 @@ async function registerUser(event) {
   const college = document.getElementById("college").value;
   const degree = document.getElementById("degree").value;
   const passing = document.getElementById("year").value;
+  const dsa = "0";
+  const web = "0";
   console.log({username, email, password});
 
   const result = await fetch("/api/register", {
@@ -23,7 +25,9 @@ async function registerUser(event) {
       fullname,
       college,
       degree,
-      passing
+      passing,
+      dsa,
+      web
     }),
   }).then((res) => res.json());
   

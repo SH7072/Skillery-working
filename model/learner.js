@@ -8,7 +8,9 @@ const LearnerSchema = new mongoose.Schema(
 		fullname: { type: String, required: true},
         college: { type: String, required: true},
         degree: { type: String, required: true},
-        passing: { type: String, required: true}
+        passing: { type: String, required: true},
+        dsa: { type: String, required: true},
+        web: { type: String, required: true},
  	},
 	{ collection: 'learners' }
 )

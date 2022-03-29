@@ -10,25 +10,24 @@
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./chatbotRoom.css" />
-		<title>ChatCord App</title>
+		<link rel="stylesheet" href="./chat-home.css" />
+		<title>Discussions</title>
 	</head>
 	<body>
 		<div class="join-container">
+			<div class="logo">
+				<img src="./resources/Logo.svg" style="width: 150px;" alt="logo">
+			</div>
 			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> Skillery </h1>
+				<h1>Skillery </h1>
 			</header>
 			<main class="join-main">
 				<form action="/chatroom">
 					<div class="form-control">
 						<label for="room">Room</label>
 						<select name="room" id="room">
-							<option value="JavaScript">JavaScript</option>
-							<option value="Python">Python</option>
-							<option value="PHP">PHP</option>
-							<option value="C#">C#</option>
-							<option value="Ruby">Ruby</option>
-							<option value="Java">Java</option>
+							<option value="JavaScript">Data Structures and algorithms</option>
+							<option value="Python">Web development</option>
 						</select>
 					</div>
 					<button type="submit" class="btn">Join Chat</button>
