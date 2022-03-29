@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Comfortaa:wght@700&display=swap');
+
 .container{
-    padding:5% 20% 10% 20%;
+    padding: 1% 20% 10% 20%;
     }
     @media only screen and (max-width: 786px) {
     #profilepic {
@@ -43,13 +45,19 @@
         background: none;
         border: none;
     }
+
+    .box p{
+        font-family: 'Acme';
+        font-size: 20px;
+        margin-top: 20px;
+    }
     .box .heading{
         font-size: 25px;
         font-weight: 700;
     }
     .box{
-        padding-bottom: 20px;
         border-bottom: 5px solid rgb(255, 120, 30);
+        margin-bottom: 15px;
     }
     .progress-bar {
         background-color: rgb(255, 120, 30);

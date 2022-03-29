@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <%- include('navbar',{active: "compiler"}); -%>
+    <%- include('partials/learner-navbar',{active: "compiler"}); -%>
     <div class="main-container text-center">
         <h2>Code, Compile & Run</h2>
         <p class="sub-heading">Compile & run your code with the CodeChef online IDE. Our online compiler supports multiple programming languages like Python, C++, C, Kotlin, NodeJS, and many more.</p>
@@ -30,7 +30,7 @@
         </div>
         <textarea name="output-area" id="output-area" cols="140" rows="10" readonly="true" placeholder="Your output" class="mx-auto my-4  d-block"></textarea>
     </div>
-    <%- include('footer') -%>
+    <%- include('partials/footer') -%>
     <script src="./javascripts/compiler.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
 </body>

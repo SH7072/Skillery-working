@@ -20,39 +20,40 @@
 </head>
 
 <body>
-    <!-- <%- include('partials/learner-navbar'); -%> -->
-    <br><br>
-    <div class="container">
 
+    <%- include("partials/learner-navbar.ejs") -%>
+    <div class="container">
         <div class="row">
             <div class="col-md-3 order-md-2" id="profilepic">
                 <img src="../../../resources/avataricons/2co-f.svg" alt="Name">
             </div>
             <div class="col-md-9 order-md-1" id="Sname">
-                Tanmay Rajesh Umredkar
+                <!-- Tanmay Rajesh Umredkar -->
+                <%= learner.username %>
                 <button> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>
             </div>
         </div>
         <div class="about">
             <div class="box">
-                <div class="heading">Skills</div>
-                <button><i class="fa-solid fa-plus"></i>add skills</button>
+                <div class="heading">Full Name</div>
+                <p><%= learner.fullname %></p>
             </div>
             <div class="box">
-                <div class="heading">Projects</div>
-                <button><i class="fa-solid fa-plus"></i>add a project</button>
+                <div class="heading">Degree</div>
+                <p><%= learner.degree %></p>
             </div>
             <div class="box">
-                <div class="heading">Work Experience</div>
-                <button><i class="fa-solid fa-plus"></i>add an experience</button>
+                <div class="heading">Collge</div>
+                <p><%= learner.degree %></p>
             </div>
             <div class="box">
-                <div class="heading">Certifications</div>
-                <button><i class="fa-solid fa-plus"></i>add a certification</button>
+                <div class="heading">Passing year</div>
+                <p><%= learner.passing %></p>
             </div>
             <div class="box">
-                <div class="heading">Academics</div>
-                <button><i class="fa-solid fa-plus"></i>add academic info</button>
+                <div class="heading">Scores</div>
+                <p>DSA : <%= learner.dsa %></p>
+                <p>Web Development : <%= learner.web %></p>
             </div>
         </div>
     </div>

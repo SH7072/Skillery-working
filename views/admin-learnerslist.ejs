@@ -19,12 +19,10 @@
     <link rel="stylesheet" href="learners-list.css">
 </head>
 <body>
-    <%- include('partials/learner-navbar'); -%>
+    <%- include('partials/admin-navbar'); -%>
 
     <div>
-
-
-        <div class="mx-auto my-3" style="width : 80vw ;height : 80vh; overflow-y : scroll">
+        <div class="mx-auto my-3" style="width : 80vw ;max-height  : 80vh; overflow-y : scroll">
             <div >
                 <div class="leaderboard">
                     <div class="head">
@@ -51,14 +49,9 @@
                                 </div>
                             </div>
                         </div>
-                        <% let cnt = 0%>
                         <%if (records.length >0){ %>
                             <% records.forEach(function(row){ %>
                                 <div class="row rowl">
-                                    <!-- <div class="col-2">
-                                        <% cnt++ %>
-                                        <%= cnt %>
-                                    </div> -->
                                     <div class="col-2 overflow-auto">
                                         <%= row.fullname %>
                                     </div>
@@ -87,8 +80,10 @@
             </div>
         </div>
         <div class=" add mx-auto" style="text-align: center">
-            <h4 style="color : white; display: inline; padding-right: 10px">Add a new student</h4>
-            <i class="fas fa-plus fa-2xl" style="color : white; display: inline"></i>
+            <a href="/admin-learner-registartion">
+                <h4 style="color : white; display: inline; padding-right: 10px">Add a new student</h4>
+                <i class="fas fa-plus fa-2xl" style="color : white; display: inline"></i>
+            </a>
         </div>
       
     </div>

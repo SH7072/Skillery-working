@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Companies List</title>
+    <title>Student List</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="shortcut icon" href="../../../../resources/Logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../../../../Bootstrap/css/bootstrap.css">
@@ -19,56 +19,48 @@
     <link rel="stylesheet" href="learners-list.css">
 </head>
 <body>
-    <%- include('partials/learner-navbar'); -%>
+    <%- include('partials/company-navbar'); -%>
 
     <div>
-
-
         <div class="mx-auto my-3" style="width : 80vw ;max-height  : 80vh; overflow-y : scroll">
             <div >
                 <div class="leaderboard">
                     <div class="head">
-                        <h1>Companies Associated</h1>
+                        <h1>Learners Enrolled</h1>
                     </div>
                     <div class="body p-2">
                         <div class="row ">
-                            <div class="col-2">
-                                Company Name
-                            </div>
-                            <div class="col-1 ">
+                            <div class="col-3">
+                                Full Name
                             </div>
                             <div class="col-5 ">
                                 Email id
                             </div>
                             <div class="col-2">
                                 <div class="score mobHide">
-                                    Students Placed
+                                    Score in DSA
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="score mobHide">
-                                    Avg Salary Offered
+                                    Score in Web dev
                                 </div>
                             </div>
                         </div>
-                        <% let cnt = 0%>
                         <%if (records.length >0){ %>
                             <% records.forEach(function(row){ %>
                                 <div class="row rowl">
-                                    <div class="col-2 overflow-auto">
-                                     <%= row.company %>
-                                    </div>
-                                    <div class="col-1 overflow-auto">
-                                       <button> <i class="fas fa-trash-alt"></i></button>
+                                    <div class="col-3 overflow-auto">
+                                        <%= row.fullname %>
                                     </div>
                                     <div class="col-5 overflow-auto">
                                     <%= row.email %>
                                     </div>
                                     <div class="col-2 overflow-auto">
-                                    <%= row.s_placed %>
+                                    <%= row.dsa %>
                                     </div>
                                     <div class="col-2 overflow-auto">
-                                    <%= row.avg_sal %>
+                                    <%= row.web %>
                                     </div>
                                 </div>
                             <% })}else{ %>
@@ -82,11 +74,6 @@
                 </div>
             </div>
         </div>
-        <div class=" add mx-auto" style="text-align: center">
-            <h4 style="color : white; display: inline; padding-right: 10px">Add a new Company</h4>
-            <i class="fas fa-plus fa-2xl" style="color : white; display: inline"></i>
-        </div>
-      
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="

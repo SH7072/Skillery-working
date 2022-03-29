@@ -19,8 +19,6 @@ const form = document.getElementById('login')
     
                 if (result.status === 'ok') {
                     // everythign went fine
-                    console.log('Got the token: ', result.data)
-                    localStorage.setItem('token', result.data)
                     alert('Success')
                     window.location.href = "/learner-home";
                 } else {
@@ -41,8 +39,6 @@ const form = document.getElementById('login')
     
                 if (result.status === 'ok') {
                     // everythign went fine
-                    console.log('Got the token: ', result.data)
-                    localStorage.setItem('token', result.data)
                     alert('Success')
                 } else {
                     alert(result.error)
@@ -62,9 +58,8 @@ const form = document.getElementById('login')
     
                 if (result.status === 'ok') {
                     // everythign went fine
-                    console.log('Got the token: ', result.data)
-                    localStorage.setItem('token', result.data)
                     alert('Success')
+                    window.location.href = "/company-home";
                 } else {
                     alert(result.error)
                 }
@@ -83,9 +78,8 @@ const form = document.getElementById('login')
     
                 if (result.status === 'ok') {
                     // everythign went fine
-                    console.log('Got the token: ', result.data)
-                    localStorage.setItem('token', result.data)
                     alert('Success')
+                    window.location.href = "/admin-home";
                 } else {
                     alert(result.error)
                 }
