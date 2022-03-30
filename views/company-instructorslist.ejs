@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <%- include('partials/learner-navbar'); -%>
+    <%- include('partials/admin-navbar'); -%>
         <div>
             <div class="mx-auto my-3" style="width : 80vw ;max-height : 80vh; overflow-y : scroll">
                 <div>
@@ -31,13 +31,13 @@
                         </div>
                         <div class="body p-2">
                             <div class="row ">
-                                <div class="col-3">
+                                <div class="col-2">
                                     Full Name
                                 </div>
-                                <div class="col-3 ">
+                                <div class="col-2 ">
                                     Email id
                                 </div>
-                                <div class="col-2">
+                                <div class="col-3">
                                     <div class="score mobHide">
                                         Qualifications
                                     </div>
@@ -60,17 +60,17 @@
                                             <div class="col-2 overflow-auto">
                                                 <%= row.fullname %>
                                             </div>
-                                            <div class="col-3 overflow-auto">
+                                            <div class="col-2 overflow-auto">
                                                 <%= row.email %>
                                             </div>
-                                            <div class="col-2 overflow-auto">
-                                                <%= row.qual %>
+                                            <div class="col-3 overflow-auto">
+                                                <%= row.qualification %>
                                             </div>
                                             <div class="col-2 overflow-auto">
-                                                <%= row.exp %>
+                                                <%= row.experience %>
                                             </div>
                                             <div class="col-2 overflow-auto">
-                                                <%= row.topics %>
+                                                DSA, Web
                                             </div>
                                         </div>
                                         <% })}else{ %>
@@ -84,8 +84,13 @@
                     </div>
                 </div>
             </div>
+            <div class=" add mx-auto" style="text-align: center">
+                <a href="admin-instructor-registration"><h4 style="color : white; display: inline; padding-right: 10px">Add a new Instructor</h4></a>
+                <i class="fas fa-plus fa-2xl" style="color : white; display: inline"></i>
+            </div>
         </div>
-        <%- include('partials/footer') -%>
+        <br>
+    <%- include('partials/footer') -%>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
             integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
             crossorigin="anonymous"></script>
