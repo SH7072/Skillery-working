@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Companies List</title>
     <link rel="stylesheet" href="navbar.css">
-    <link rel="shortcut icon" href="../../../../resources/Logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./resources/Logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../../../../Bootstrap/css/bootstrap.css">
     <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="learners-list.css">
 </head>
 <body>
-    <%- include('partials/learner-navbar'); -%>
+    <%- include('partials/admin-navbar'); -%>
 
     <div>
 
@@ -33,21 +33,16 @@
                     <div class="body p-2">
                         <div class="row ">
                             <div class="col-2">
-                                Company Name
+                                Username
                             </div>
                             <div class="col-1 ">
                             </div>
                             <div class="col-5 ">
                                 Email id
                             </div>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="score mobHide">
-                                    Students Placed
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                    Avg Salary Offered
+                                    Company Name
                                 </div>
                             </div>
                         </div>
@@ -56,7 +51,7 @@
                             <% records.forEach(function(row){ %>
                                 <div class="row rowl">
                                     <div class="col-2 overflow-auto">
-                                     <%= row.company %>
+                                     <%= row.username %>
                                     </div>
                                     <div class="col-1 overflow-auto">
                                        <button> <i class="fas fa-trash-alt"></i></button>
@@ -64,11 +59,8 @@
                                     <div class="col-5 overflow-auto">
                                     <%= row.email %>
                                     </div>
-                                    <div class="col-2 overflow-auto">
-                                    <%= row.s_placed %>
-                                    </div>
-                                    <div class="col-2 overflow-auto">
-                                    <%= row.avg_sal %>
+                                    <div class="col-3 overflow-auto">
+                                    <%= row.company %>
                                     </div>
                                 </div>
                             <% })}else{ %>
@@ -82,12 +74,14 @@
                 </div>
             </div>
         </div>
-        <div class=" add mx-auto" style="text-align: center">
+        <div class=" add mx-auto" style="text-align: center"><a href="admin-company-registration">
             <h4 style="color : white; display: inline; padding-right: 10px">Add a new Company</h4>
             <i class="fas fa-plus fa-2xl" style="color : white; display: inline"></i>
-        </div>
+        </a></div>
       
     </div>
+    <br>
+    <%- include('partials/footer') -%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
     crossorigin="anonymous"></script>
