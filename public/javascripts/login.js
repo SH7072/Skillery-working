@@ -40,6 +40,7 @@ const form = document.getElementById('login')
                 if (result.status === 'ok') {
                     // everythign went fine
                     alert('Success')
+                    window.location.href = "/instructor-home";
                 } else {
                     alert(result.error)
                 }

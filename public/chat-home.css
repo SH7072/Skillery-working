@@ -29,7 +29,7 @@ a {
 	text-decoration: none;
 }
 
-.btn {
+.btn1 {
 	cursor: pointer;
 	padding: 5px 15px;
 	background: var(--light-color);
@@ -58,7 +58,7 @@ a {
 	justify-content: space-between;
 }
 
-.logo{
+.logo1{
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -135,7 +135,7 @@ a {
 /* Join Page */
 .join-container {
 	max-width: 500px;
-	margin: 80px auto;
+	margin: 50px auto;
 	color: #fff;
 }
 
@@ -180,7 +180,7 @@ a {
 	width: 100%;
 }
 
-.join-main .btn {
+.join-main .btn1 {
 	margin-top: 20px;
 	width: 100%;
 }

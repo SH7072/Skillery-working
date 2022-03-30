@@ -10,29 +10,33 @@
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 			crossorigin="anonymous"
 		/>
+		<script src="https://kit.fontawesome.com/7740605ddf.js" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="./chat-home.css" />
 		<title>Chat Home</title>
 	</head>
 	<body>
+		<%- include(`partials/${user}-navbar`); -%>
 		<div class="join-container">
-			<div class="logo">
-				<img src="./resources/Logo.svg" style="width: 150px;" alt="logo">
+			<div class="logo1">
+				<img src="./resources/logo.svg" style="width: 150px;" alt="logo1">
 			</div>
 			<header class="join-header">
 				<h1>Skillery </h1>
 			</header>
 			<main class="join-main">
-				<form action="/chatroom">
-					<div class="form-control">
+				<form action="/chat-room">
+					<div>
 						<label for="room">Room</label>
 						<select name="room" id="room">
 							<option value="JavaScript">Data Structures and algorithms</option>
 							<option value="Python">Web development</option>
 						</select>
 					</div>
-					<button type="submit" class="btn">Join Chat</button>
+					<button type="submit" class="btn1">Join Chat</button>
 				</form>
 			</main>
 		</div>
+		<%- include('partials/footer'); -%>
 	</body>
 </html>

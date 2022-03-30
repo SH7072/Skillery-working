@@ -337,15 +337,6 @@ app.get("/home-registration", function (req, res) {
   res.render("home-registration");
 });
 
-// Chat
-
-app.get("/chat-home", function (req, res) {
-  res.render("chat-home");
-});
-
-app.get("/chat-room", function (req, res) {
-  res.render("chat-room");
-});
 
 // Learner
 
@@ -369,6 +360,10 @@ app.get("/learner-module", function (req, res) {
     console.log(error);
     res.redirect("home-login");
   }
+});
+
+app.get("/learner-chat-room", function (req, res) {
+  res.render("chat-room", {user : "learner"});
 });
 
 app.get("/learner-profile", function (req, res) {
@@ -476,7 +471,7 @@ app.get("/compiler", function (req, res) {
   const token = req.cookies.check;
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    res.render("compiler");
+    res.render("compiler", {user : "learner"});
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -538,6 +533,7 @@ app.get("/company-instructorslist", function (req, res) {
 // Instructors view
 
 app.get("/instructor-home", function (req, res) {
+
   const token = req.cookies.check;
   try {
     let instructor = instructorModel.find({});
@@ -579,8 +575,32 @@ app.get("/instructor-homeworklist", function (req, res) {
   }
 });
 
+app.get("/instructor-learnerslist", function (req, res) {
+  const token = req.cookies.check;
+  try {
+    let learner = learnerModel.find({});
+    learner.exec(function (err, data) {
+      if (err) throw err;
+      res.render("instructor-learnerslist", { records: data });
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
+});
+
+app.get("/instructor-chat-home", function (req, res) {
+  res.render("chat-home", {user : "instructor"});
+});
+
+app.get("/instructor-compiler", function (req, res) {
+  res.render("compiler", {user : "instructor"});
+});
 
 
+app.get("chat-home", function (req, res) {
+  res.render("chat-home");
+})
 app.get("/contact-us", function (req, res) {
   res.render("contact-us");
 });
