@@ -175,7 +175,7 @@ app.post("/api/instructor-register", async (req, res) => {
   const password = await bcrypt.hash(plainTextPassword, 10);
 
   try {
-    const response = await Company.create({
+    const response = await Instructor.create({
       email,
       username,
       password,

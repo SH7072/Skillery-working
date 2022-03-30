@@ -7,7 +7,6 @@ async function registerUser(event) {
   const password = document.getElementById("password").value;
   const email = document.getElementById("email").value;
   const name = document.getElementById("companyname").value;
-  const studentsplaced = 0;
 
   console.log(username);
 
