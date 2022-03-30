@@ -332,6 +332,9 @@ app.get("/home-aboutus", function (req, res) {
 app.get("/home-login", function (req, res) {
   res.render("home-login");
 });
+app.get("/home-forgotpassword", function (req, res) {
+  res.render("home-forgotpassword");
+});
 
 app.get("/home-registration", function (req, res) {
   res.render("home-registration");
