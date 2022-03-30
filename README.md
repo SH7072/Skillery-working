@@ -3,6 +3,16 @@
 Skillery is a dream which is envisioned to make programming education easy and accessible for Indian students. We designed a program which is market oriented, fun to learn and focus on setting a strong base for a programming career. Our students are an asset for any team from day one, and trained to be great coders.
 
 ---
+## Project link
+- ### https://github.com/abhay2002-pro/Skillery-working
+## Contributors
+- #### Abhay Kumar Ray
+- #### Tanmay Umredkar
+- #### Shubham Chandwani
+- #### Ashutosh Rawat
+- #### Tanmay Pawar
+
+
 ## Requirements
 
 For development, you will only need Node.js and a node global package, npm, installed in your environement.
