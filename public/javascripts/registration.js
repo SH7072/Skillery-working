@@ -1,4 +1,15 @@
 const form = document.getElementById("reg-form");
+
+function ValidateEmail(x) {
+
+  var atposition = x.indexOf("@");
+  var dotposition = x.lastIndexOf(".");
+  if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
+      return false;
+  }
+  return true;
+}
+
 form.addEventListener("submit", registerUser);
 async function registerUser(event) {
   event.preventDefault();
@@ -12,6 +23,9 @@ async function registerUser(event) {
   const dsa = "0";
   const web = "0";
   console.log({username, email, password});
+
+  if(ValidateEmail(email)){
+    
 
   const result = await fetch("/api/register", {
     method: "POST",
@@ -37,5 +51,9 @@ async function registerUser(event) {
     window.location.href = "/home-login";
   } else {
     alert(result.error);
+  }
+  }
+  else{
+    alert("Invalid email format");
   }
 }
