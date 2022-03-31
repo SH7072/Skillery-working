@@ -337,7 +337,7 @@ app.get("/home-forgotpassword", function (req, res) {
 });
 
 app.get("/home-registration", function (req, res) {
-  res.render("home-registration");
+  res.render("home-registration",{user : "home"});
 });
 
 
@@ -347,7 +347,7 @@ app.get("/learner-home", function (req, res) {
   const token = req.cookies.check;
   try {
     const learner = jwt.verify(token, JWT_SECRET);
-    res.render("learner-home");
+    res.render("instructor-home",{user : "learner"});
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -358,15 +358,15 @@ app.get("/learner-module", function (req, res) {
   const token = req.cookies.check;
   try {
     const learner = jwt.verify(token, JWT_SECRET);
-    res.render("learner-module");
+    res.render("instructor-module",{user : "learner"});
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
   }
 });
 
-app.get("/learner-chat-room", function (req, res) {
-  res.render("chat-room", {user : "learner"});
+app.get("/learner-chat-home", function (req, res) {
+  res.render("chat-home", {user : "learner"});
 });
 
 app.get("/learner-profile", function (req, res) {
@@ -441,7 +441,7 @@ app.get("/admin-learner-registartion", function (req, res) {
   const token = req.cookies.check;
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    res.render("admin-learnerreg");
+    res.render("home-registration",{user : "instructor"});
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -452,7 +452,7 @@ app.get("/admin-company-registration", function (req, res) {
   const token = req.cookies.check;
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    res.render("admin-companyreg");
+    res.render("home-registration",{user : "company"});
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -463,7 +463,7 @@ app.get("/admin-instructor-registration", function (req, res) {
   const token = req.cookies.check;
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    res.render("admin-instructorreg");
+    res.render("home-registration",{user : "instructor"});
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -542,7 +542,7 @@ app.get("/instructor-home", function (req, res) {
     let instructor = instructorModel.find({});
     instructor.exec(function (err, data) {
       if (err) throw err;
-      res.render("instructor-home");
+      res.render("instructor-home",{user : "instructor"});
     });
   } catch (error) {
     console.log(error);
@@ -556,7 +556,7 @@ app.get("/instructor-module", function (req, res) {
     let instructor = instructorModel.find({});
     instructor.exec(function (err, data) {
       if (err) throw err;
-      res.render("instructor-module");
+      res.render("instructor-module",{user : "instructor"});
     });
   } catch (error) {
     console.log(error);

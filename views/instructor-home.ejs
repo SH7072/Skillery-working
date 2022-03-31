@@ -20,21 +20,31 @@
 </head>
 
 <body>
-  <%- include('partials/instructor-navbar'); -%>
+  <% if(user=="instructor") { %>
+    <%- include('partials/instructor-navbar'); -%>
+  <% } %>
+  <% if(user=="learner") { %>
+    <%- include('partials/learner-navbar'); -%>
+  <% } %>
 
   <div>
-    <a class="container" id="viewstudents" href="instructor-learnerslist">
-        <i class="fa-solid fa-people-group"></i> View Students List
-    </a> 
-    <hr>
+    <% if(user=="instructor") { %>
+      <a class="container" id="viewstudents" href="instructor-learnerslist">
+          <i class="fa-solid fa-people-group"></i> View Students List
+      </a> 
+      <hr>
+    <% } %>
           <div class="container-fluid">
               <div class="bot">
               <div class="row">
-                  <div class="col-md-8 order-md-1 ">
+                  <div class="col-md-8 order-md-1 mt-5">
                     <div class="learning">
-    
-                    
+                      <% if(user=="instructor") { %>
+                      <h4>Teaching Module</h4>
+                      <% } %>
+                      <% if(user=="learner") { %>
                       <h4>Learning Module</h4>
+                      <% } %>
                       <div class="allCourses">
                         <div class="course">
                         <div class="row courses">
@@ -43,7 +53,19 @@
                               <h5>Data Structures & Algorithm</h5>
                                                     
                             </div>
-                            <div class="btn col-4"><a href="instructor-module"><button class="btnprev"><i class="fa-solid fa-play"></i></button></a></div>
+
+                            <% if(user=="instructor") { %>
+                            <div class="btn col-4">
+                              <a href="instructor-module"><button class="btnprev"><i class="fa-solid fa-play"></i></button></a>
+                            </div>
+                            <% } %>
+                            <% if(user=="learner") { %>
+                            <div class="btn col-4">
+                              <a href="learner-module"><button class="btnprev"><i class="fa-solid fa-play"></i></button></a>
+                            </div>
+                            <% } %>
+             
+
                           </div>
                         </div>
                         <br>
@@ -52,15 +74,25 @@
                           <div class="courseDescr col-8">
     
                             <h5>Web Development</h5>
-                          </div>                          
-                            <div class="btn col-4"><a href="instructor-module"><button class="btnprev"><i class="fa-solid fa-play"></i></button></a></div>
-                            
+                          </div>    
+
+                          <% if(user=="instructor") { %>
+                            <div class="btn col-4">
+                              <a href="instructor-module"><button class="btnprev"><i class="fa-solid fa-play"></i></button></a>
+                            </div>
+                            <% } %>
+                          <% if(user=="learner") { %>
+                            <div class="btn col-4">
+                              <a href="learner-module"><button class="btnprev"><i class="fa-solid fa-play"></i></button></a>
+                            </div>
+                            <% } %>
+
                           </div>
                         </div>
                       </div>
                   </div>
                   </div>
-                  <div class="col-md-4 order-md-2">
+                  <div class="col-md-4 order-md-2 mt-5">
                       <div class="'row">
                           <h4>Upcoming Sessions</h4>
                           <div class="carousel">
