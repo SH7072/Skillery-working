@@ -24,7 +24,7 @@ mongoose
       useUnifiedTopology: true,
     }
   )
-  .then((d) => console.log("sucesss"));
+  .then((d) => console.log("success"));
 
 const app = express();
 
@@ -200,6 +200,7 @@ app.post("/api/instructor-register", async (req, res) => {
 app.post("/api/learner-login", async (req, res) => {
   const { username, password } = req.body;
   console.log(username);
+  
   // data shouldn't be in mongodb format
   const user = await Learner.findOne({ username }).lean();
 
