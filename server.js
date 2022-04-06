@@ -1,4 +1,5 @@
 const express = require("express");
+const http = require('http');
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -9,10 +10,17 @@ const Admin = require("./model/admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const socketio = require("socket.io");
+const formatMessage = require("./utils/messages");
 
 let learnerModel = require("./model/learner");
 let instructorModel = require("./model/instructor");
 let companyModel = require("./model/company");
+
+const app = express();
+const server = http.createServer(app);
+let io = socketio(server);
+
 
 const JWT_SECRET = "abhs@vb#s3g%f$fgmnabkjufyfc@ijhu#HB$BHB$b5%jhbB%gb%Hg%b";
 
@@ -26,12 +34,36 @@ mongoose
   )
   .then((d) => console.log("sucesss"));
 
-const app = express();
-
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+// Chat application
+const botname = "Chatcord bot";
+// When client connects to server
+io.on("connection",socket => {  
+
+    // Welcome cureent userr (TO the client)
+  socket.emit('message',formatMessage(botname,"Welcome back"));
+
+  //Braodcast when a user connects (All the client expect the user)
+  socket.broadcast.emit('message',formatMessage(botname,"User has joined the chat"));
+
+  // All the clients
+  // io.emit
+
+
+  // Runs when client disconnects 
+  socket.on('disconnect',()=>{
+    io.emit('message',formatMessage(botname,'A user has left the chat'));
+  })
+
+  //Listen for chat messgae
+  socket.on('chatMessage',(msg) => {
+    io.emit('message',formatMessage("user",msg));
+  })
+})
 
 //Authentication
 
@@ -596,6 +628,8 @@ app.get("/instructor-chat-home", function (req, res) {
   res.render("chat-home", {user : "instructor"});
 });
 
+
+
 app.get("/instructor-compiler", function (req, res) {
   res.render("compiler", {user : "instructor"});
 });
@@ -608,4 +642,11 @@ app.get("/contact-us", function (req, res) {
   res.render("contact-us");
 });
 
-app.listen(8080);
+
+
+
+app.get("/learner-chat-room", function (req, res) {
+  res.render("chat-room", {user : "learner"});
+});
+
+server.listen(8080);
