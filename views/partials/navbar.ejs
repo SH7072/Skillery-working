@@ -25,7 +25,10 @@
         <i class="fas fa-bars"></i>
       </label>
         <ul>
-          <li><a <%if(active=="learner"){%>class="active"<%}%> href="/home-learner">Learners</a></li>
+          <li><a <% if(active=="learner") { %>
+            class="active"
+            <% } %> 
+            href="/home-learner">Learners</a></li>
           <li><a <%if(active=="college"){%>class="active"<%}%> href="/home-college">Colleges</a></li>
           <li><a <%if(active=="company"){%>class="active"<%}%> href="/home-company">Companies</a></li>
           <li><a <%if(active=="aboutus"){%>class="active"<%}%> href="/home-aboutus">About Us</a></li>
