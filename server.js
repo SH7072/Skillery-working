@@ -663,7 +663,12 @@ app.get("/contact-us", function (req, res) {
 
 app.post('/deletestudent', async (req, res, next) => {
   console.log(req.body.studentid);
-  Learner.remove( {"_id": req.body.studentid} );
+  Learner.deleteOne({_id: req.body.studentid},(err,learn)=>{
+    if(err){
+      throw err;
+    }
+    console.log(learn);
+  });
   next();
 })
 
