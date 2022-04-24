@@ -1,51 +1,32 @@
-const chatForm = document.getElementById("chat-form");
-const chatMessages = document.querySelector(".chat-messages")
 
-//Get username and oom form URL 
-const {room} = Qs.parse(location.search.replace,{
+const {username, room} = Qs.parse(location.search, {
     ignoreQueryPrefix: true
+})
+
+var socket = io(); 
+
+
+
+$("form").submit(function(e) {
+    var socket = io(); 
+    e.preventDefault(); // prevents page reloading
+    const msg = $("#message").val()
+    if(msg){
+        const data = {
+            msg,
+            username
+        }
+        socket.emit("chat message", data);
+    }
+    $("#message").val("");
+    $("#message").val();
 });
 
-console.log(room);
-
-const socket = io();
-
-// Message server
-socket.on("message", message => {
+socket.on("received", (message) => {
     console.log(message);
-    outputMessage(message);
-
-    //Scroll down
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    let  li  =  document.createElement("li");
+    messages.appendChild(li).append(message.msg);
+    let  span  =  document.createElement("span");
+    messages.appendChild(span).append("by "  +  message.username);
+    messages.scrollTop = messages.scrollHeight;
 })
-
-// Message submittion
-
-chatForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    //Get message text
-    const msg = e.target.elements.msg.value;
-
-    //Emit message to the server
-    socket.emit('chatMessage', msg);
-
-    // Clear input
-    e.target.elements.msg.value = "";
-    e.target.elements.msg.focus();
-})
-
-
-// output message to DOM
-
-function outputMessage(msg){
-    const div = document.createElement('div');
-    div.classList.add('message');
-    div.innerHTML = `<p class="meta">${msg.username} <span>${msg.time}</span></p>
-    <p class="text">
-    ${msg.text}
-    </p>
-    `;
-    console.log(msg);
-    document.querySelector(".chat-messages").appendChild(div);
-}

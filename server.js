@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const Learner = require("./model/learner");
 const Instructor = require("./model/instructor");
 const Company = require("./model/company");
+const Chat = require("./model/chat");
 const Admin = require("./model/admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -16,6 +17,7 @@ const formatMessage = require("./utils/messages");
 let learnerModel = require("./model/learner");
 let instructorModel = require("./model/instructor");
 let companyModel = require("./model/company");
+let chatModel = require("./model/chat");
 
 const app = express();
 const server = http.createServer(app);
@@ -40,30 +42,39 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Chat application
-const botname = "Chatcord bot";
 // When client connects to server
 io.on("connection",socket => {  
 
-    // Welcome cureent userr (TO the client)
-  socket.emit('message',formatMessage(botname,"Welcome back"));
+  console.log("user connected");
 
-  //Braodcast when a user connects (All the client expect the user)
-  socket.broadcast.emit('message',formatMessage(botname,"User has joined the chat"));
+  socket.on("chat message", function(data){
+    io.emit("received", data);
+    let chatMessage = new Chat({ message: data.msg, sender: data.username });
+    chatMessage.save();
+  })
+  //   // Welcome cureent userr (TO the client)
+  // socket.emit('message',formatMessage(botname,"Welcome back"));
 
-  // All the clients
-  // io.emit
+  // //Braodcast when a user connects (All the client expect the user)
+  // socket.broadcast.emit('message',formatMessage(botname,"User has joined the chat"));
+
+  // // All the clients
+  // // io.emit
 
 
   // Runs when client disconnects 
-  socket.on('disconnect',()=>{
-    io.emit('message',formatMessage(botname,'A user has left the chat'));
+  io.on('disconnect',()=>{
+    console.log("Disconnected");
+    // io.emit('message',formatMessage(botname,'A user has left the chat'));
   })
 
-  //Listen for chat messgae
-  socket.on('chatMessage',(msg) => {
-    io.emit('message',formatMessage("user",msg));
-  })
+  
+  // //Listen for chat messgae
+  // socket.on('chatMessage',(msg) => {
+  //   io.emit('message',formatMessage("user",msg));
+  // })
 })
+
 
 //Authentication
 
@@ -399,7 +410,14 @@ app.get("/learner-module", function (req, res) {
 });
 
 app.get("/learner-chat-home", function (req, res) {
-  res.render("chat-home", {user : "learner"});
+  const token = req.cookies.check;
+  try {
+    const user = jwt.verify(token, JWT_SECRET);
+    res.render("chat-home", { user : "learner", learner: user });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
 });
 
 app.get("/learner-profile", function (req, res) {
@@ -643,11 +661,27 @@ app.get("/contact-us", function (req, res) {
   res.render("contact-us");
 });
 
-
+app.post('/deletestudent', async (req, res, next) => {
+  console.log(req.body.studentid);
+  Learner.remove( {"_id": req.body.studentid} );
+  next();
+})
 
 
 app.get("/learner-chat-room", function (req, res) {
-  res.render("chat-room", {user : "learner"});
+  const token = req.cookies.check;
+  try {
+    const user = jwt.verify(token, JWT_SECRET);
+    let chat = chatModel.find({});
+    chat.exec(function (err, data) {
+      if (err) throw err;
+      console.log(data);
+      res.render("chat-room", { records: data, user: "learner" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
 });
 
 server.listen(8080);

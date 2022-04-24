@@ -27,11 +27,14 @@
 			<main class="join-main">
 				<form action="/learner-chat-room">
 					<div>
-						<label for="room">Room</label>
-						<select name="room" id="room">
-							<option value="JavaScript">Data Structures and algorithms</option>
-							<option value="Python">Web development</option>
-						</select>
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							value="<%= learner.username%>"
+							readonly
+						/>
 					</div>
 					<button type="submit" class="btn1">Join Chat</button>
 				</form>
