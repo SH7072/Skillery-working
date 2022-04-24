@@ -111,12 +111,22 @@
                       <div>
                         <div class="row">
                           <div class="col-4 order-xs-4 text-left">
-                            <button class="meet">
+                            <button class="meet" onclick="openForm()">
                               <% if(user=="instructor" ) { %>
                                 Add
                                 <% } %>
                                   Lecture Link <i class="fa-solid fa-video"></i>
                             </button>
+                            <div class="loginPopup">
+                              <div class="formPopup" id="popupForm">
+                                <form action="" class="formContainer">
+                                  <label for="link">Add Lecture Link
+                                  </label><br>
+                                  <input type="text" id="link" placeholder="Add Lecture Link" name="link" required>
+                                  <button type="submit" class="btn cancel" onclick="closeForm()">Submit</button>
+                                </form>
+                              </div>
+                            </div>
                           </div>
                           <div class="col-4 order-xs-4 text-center">
                             <button class="meet">
@@ -324,6 +334,14 @@
                       }
                     }
                   })</script>
+                    <script>
+                      function openForm() {
+                        document.getElementById("popupForm").style.display = "block";
+                      }
+                      function closeForm() {
+                        document.getElementById("popupForm").style.display = "none";
+                      }
+                    </script>
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                   crossorigin="anonymous"></script>
