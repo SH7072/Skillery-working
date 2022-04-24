@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
-
+let {Course}=require('./model/course');
 let learnerModel = require("./model/learner");
 let instructorModel = require("./model/instructor");
 let companyModel = require("./model/company");
@@ -23,7 +23,52 @@ const app = express();
 const server = http.createServer(app);
 let io = socketio(server);
 
-
+const course=new Course({
+  name:'DSA',
+  weeks:[
+    {
+      done:32,
+      days:[
+        {
+          lectureLink:'sdfasdc',
+          homeworkLink:'asdcasd',
+          score:23
+        },
+        {
+          lectureLink:'sdfasdc',
+          homeworkLink:'asdcasd',
+          score:23
+        },
+        {
+          lectureLink:'sdfasdc',
+          homeworkLink:'asdcasd',
+          score:23
+        }
+      ]
+    },
+    {
+      done:32,
+      days:[
+        {
+          lectureLink:'sdfasdc',
+          homeworkLink:'asdcasd',
+          score:23
+        },
+        {
+          lectureLink:'sdfasdc',
+          homeworkLink:'asdcasd',
+          score:23
+        },
+        {
+          lectureLink:'sdfasdc',
+          homeworkLink:'asdcasd',
+          score:23
+        }
+      ]
+    }
+  ]
+});
+course.save();
 const JWT_SECRET = "abhs@vb#s3g%f$fgmnabkjufyfc@ijhu#HB$BHB$b5%jhbB%gb%Hg%b";
 
 mongoose
@@ -46,7 +91,7 @@ app.use(cookieParser());
 io.on("connection",socket => {  
 
   console.log("user connected");
-
+ṭ
   socket.on("chat message", function(data){
     io.emit("received", data);
     let chatMessage = new Chat({ message: data.msg, sender: data.username });
