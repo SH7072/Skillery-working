@@ -63,7 +63,7 @@
                                                 <%= row.fullname %>
                                             </div>
                                             <div class="col-1 overflow-auto">
-                                                <button> <i class="fas fa-trash-alt"></i></button>
+                                                <button><i class="fas fa-trash-alt delete" idd="<%= row.id %>"></i></button>
                                             </div>
                                             <div class="col-2 overflow-auto">
                                                 <%= row.email %>
@@ -103,6 +103,7 @@
             integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
             crossorigin="anonymous"></script>
         <script src="../../../../Bootstrap/js/bootstrap.js"></script>
+        <script src="./javascripts/list.js"></script>
 </body>
 
 </html>

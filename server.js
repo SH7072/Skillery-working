@@ -662,12 +662,29 @@ app.get("/contact-us", function (req, res) {
 });
 
 app.post('/deletestudent', async (req, res, next) => {
-  console.log(req.body.studentid);
-  Learner.deleteOne({_id: req.body.studentid},(err,learn)=>{
+  Learner.deleteOne({_id: req.body.id},(err)=>{
     if(err){
       throw err;
     }
-    console.log(learn);
+  });
+  next();
+})
+
+app.post('/deleteinstructor', async (req, res, next) => {
+  Instructor.deleteOne({_id: req.body.id},(err)=>{
+    if(err){
+      throw err;
+    }
+  });
+  next();
+})
+
+app.post('/deletecompany', async (req, res, next) => {
+  console.log(req.body.id);
+  Company.deleteOne({_id: req.body.id},(err)=>{
+    if(err){
+      throw err;
+    }
   });
   next();
 })
