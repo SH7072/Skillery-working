@@ -6,7 +6,10 @@
 textarea{
     width: 60vw;
 }
-
+#code-area{
+border: 2px;
+border-color: black;
+}
 button{
     background-color: rgb(238,101,103) !important;
 }
