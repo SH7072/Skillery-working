@@ -4,6 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Learner = require("./model/learner");
+const Day = require("./model/day");
 const Instructor = require("./model/instructor");
 const Company = require("./model/company");
 const Chat = require("./model/chat");
@@ -13,7 +14,6 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
-let {Course}=require('./model/course');
 let learnerModel = require("./model/learner");
 let instructorModel = require("./model/instructor");
 let companyModel = require("./model/company");
@@ -23,52 +23,6 @@ const app = express();
 const server = http.createServer(app);
 let io = socketio(server);
 
-const course=new Course({
-  name:'DSA',
-  weeks:[
-    {
-      done:32,
-      days:[
-        {
-          lectureLink:'sdfasdc',
-          homeworkLink:'asdcasd',
-          score:23
-        },
-        {
-          lectureLink:'sdfasdc',
-          homeworkLink:'asdcasd',
-          score:23
-        },
-        {
-          lectureLink:'sdfasdc',
-          homeworkLink:'asdcasd',
-          score:23
-        }
-      ]
-    },
-    {
-      done:32,
-      days:[
-        {
-          lectureLink:'sdfasdc',
-          homeworkLink:'asdcasd',
-          score:23
-        },
-        {
-          lectureLink:'sdfasdc',
-          homeworkLink:'asdcasd',
-          score:23
-        },
-        {
-          lectureLink:'sdfasdc',
-          homeworkLink:'asdcasd',
-          score:23
-        }
-      ]
-    }
-  ]
-});
-course.save();
 const JWT_SECRET = "abhs@vb#s3g%f$fgmnabkjufyfc@ijhu#HB$BHB$b5%jhbB%gb%Hg%b";
 
 mongoose
@@ -284,6 +238,20 @@ app.post("/api/instructor-register", async (req, res) => {
   }
   res.json({ status: "ok" });
 });
+
+app.post("/api/addLecture", async (req, res) => {
+  const {lectureLink, homeworkLink} = req.body;
+  try {
+    const response = await Day.create({
+      lectureLink, 
+      homeworkLink
+    });
+    console.log("Day created successfully: ", response);
+  } catch (error) {
+    throw error;
+  }
+  res.json({ status: "ok" });
+})
 
 app.post("/api/learner-login", async (req, res) => {
   const { username, password } = req.body;

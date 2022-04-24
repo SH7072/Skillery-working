@@ -36,13 +36,13 @@
                   <h4 class="haha">13 Sections</h4>
                 </div>
               </div>
-              <div class="carousel">
+              <!-- <div class="carousel">
                 <div class="owl-carousel owl-theme">
                   <div class="item">
                     <div class="square">
                       <div class="content">
                         <div class="sr"><i class="fa-solid fa-1"></i></div>
-                        <% if(user=="learner" ) { %>
+                        <% if(user=="learner") { %>
                           <div class="C_progress">DONE</div>
                           <% } %>
                             <div class="week">Week 1</div>
@@ -94,9 +94,9 @@
                     </div>
                   </div>
 
-                </div>
-              </div>
-              <div class="accordion accordion-flush" id="accordionFlushExample">
+                </div> -->
+              <!-- </div> -->
+              <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -107,7 +107,6 @@
                   <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                      <h5>Arrays-Create an Array</h5>
                       <div>
                         <div class="row">
                           <div class="col-4 order-xs-4 text-left">
@@ -120,10 +119,9 @@
                             <div class="loginPopup">
                               <div class="formPopup" id="popupForm">
                                 <form action="" class="formContainer">
-                                  <label for="link">Add Lecture Link
-                                  </label><br>
+                                  <label for="link">Add Lecture Link</label><br>
                                   <input type="text" id="link" placeholder="Add Lecture Link" name="link" required>
-                                  <button type="submit" class="btn cancel" onclick="closeForm()">Submit</button>
+                                  <button type="submit" class="btn cancel">Submit</button>
                                 </form>
                               </div>
                             </div>
@@ -303,7 +301,19 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
+
+              <button id="addday">Add day</button>
+              <div class="loginPopup">
+                <div class="formPopup" id="popupForm">
+                  <form action="" class="formContainer">
+                    <label for="link">Add Lecture Link</label><br>
+                    <input type="text" id="link" placeholder="Add Lecture Link" name="link" required>
+                    <label for="link">Add Homework</label><br>
+                    <input type="text" id="homework" placeholder="Add Homework" name="homework" required>
+                    <button type="submit" class="btn cancel" id="submit">Submit</button>
+                  </form>
+                </div>
               <%- include("partials/footer.ejs") -%>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                   integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -334,14 +344,6 @@
                       }
                     }
                   })</script>
-                    <script>
-                      function openForm() {
-                        document.getElementById("popupForm").style.display = "block";
-                      }
-                      function closeForm() {
-                        document.getElementById("popupForm").style.display = "none";
-                      }
-                    </script>
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                   crossorigin="anonymous"></script>
@@ -353,6 +355,7 @@
                   crossorigin="anonymous"></script>
                 <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
                 <script src="./Bootstrap/js/bootstrap.js"></script>
+                <script src="./javascripts/module.js"></script>
 </body>
 
 </html>
