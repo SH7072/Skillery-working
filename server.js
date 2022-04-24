@@ -16,6 +16,7 @@ const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
 let learnerModel = require("./model/learner");
 let instructorModel = require("./model/instructor");
+let dayModel = require("./model/day");
 let companyModel = require("./model/company");
 let chatModel = require("./model/chat");
 const fs = require("fs");
@@ -419,11 +420,21 @@ app.get("/learner-module", function (req, res) {
   const token = req.cookies.check;
   try {
     const learner = jwt.verify(token, JWT_SECRET);
-    res.render("instructor-module",{user : "learner"});
+    try {
+      let day = dayModel.find({});
+      day.exec(function (err, data) {
+        if (err) throw err;
+        res.render("instructor-module", { user:"learner", records: data });
+      });
+    } catch (error) {
+      console.log(error);
+      res.redirect("home-login");
+    }
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
   }
+    
 });
 
 app.get("/learner-chat-home", function (req, res) {
@@ -621,16 +632,18 @@ app.get("/instructor-home", function (req, res) {
 app.get("/instructor-module", function (req, res) {
   const token = req.cookies.check;
   try {
-    let instructor = instructorModel.find({});
-    instructor.exec(function (err, data) {
+    let day = dayModel.find({});
+    day.exec(function (err, data) {
       if (err) throw err;
-      res.render("instructor-module",{user : "instructor"});
+      res.render("instructor-module", { user:"instructor", records: data });
     });
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
   }
 });
+
+
 
 app.get("/instructor-homeworklist", function (req, res) {
   const token = req.cookies.check;
@@ -652,7 +665,7 @@ app.get("/instructor-learnerslist", function (req, res) {
     let learner = learnerModel.find({});
     learner.exec(function (err, data) {
       if (err) throw err;
-      res.render("instructor-learnerslist", { records: data });
+      res.render("instructor-learnerslist", { user:"instructor" , records: data });
     });
   } catch (error) {
     console.log(error);

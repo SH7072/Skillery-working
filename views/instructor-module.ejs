@@ -303,6 +303,21 @@
                 </div>
               </div> -->
 
+              <% records.forEach(function(row){ %>
+                <div class="row rowl">
+                    <div class="col-3 overflow-auto">
+                        <%= row.topicName %>
+                    </div>
+                    <a class="col-5 overflow-auto">
+                    <%= row.lectureLink %>
+                    </a>
+                    <a class="col-2 overflow-auto">
+                    <%= row.homeworkLink %>
+                    </a>
+                </div>
+            <% })%>
+              
+               
               <button id="addday">Add day</button>
               <div class="loginPopup">
                 <div class="formPopup" id="popupForm">
@@ -314,7 +329,7 @@
                     <button type="submit" class="btn cancel" id="submit">Submit</button>
                   </form>
                 </div>
-              <%- include("partials/footer.ejs") -%>
+              <!-- <%- include("partials/footer.ejs") -%> -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                   integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
                   crossorigin="anonymous"></script>
