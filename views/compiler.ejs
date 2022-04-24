@@ -12,6 +12,9 @@
     <script src="https://kit.fontawesome.com/7740605ddf.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7740605ddf.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" integrity="sha512-6ts6Fu561/yzWvD6uwQp3XVYwiWNpWnZ0hdeQrETqtnQiGjTfOS06W76aUDnq51hl1SxXtJaqy7IsZ3oP/uZEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+    
     <title>Compiler</title>
 </head>
 
@@ -20,22 +23,24 @@
     <div class="main-container text-center">
         <h2>Code, Compile & Run</h2>
         <p class="sub-heading">Compile & run your code with the CodeChef online IDE. Our online compiler supports multiple programming languages like Python, C++, C, Kotlin, NodeJS, and many more.</p>
-        <textarea name="code-area" id="code-area" cols="140" rows="15" placeholder="Write your code" class="mx-auto my-4 d-block"></textarea>
+        <div name="code-area" id="code-area"  placeholder="Write your code" class="mx-auto my-4 d-block" style="width: 70%; height: 500px;"  ></div>
         <div class="m-auto">
             <select name="form-select" id="language-select">
-                <option value="0">Python</option>
-                <option value="4">Javascript</option>
-                <option value="7">C</option>
-                <option value="77">CPP</option>
-                <option value="8">JAVA</option>
+                <option value="1">Javascript</option>
+                <option value="2">Python</option>
+                <option value="3">C</option>
+                <option value="4">CPP</option>
+                <option value="5">JAVA</option>
             </select>
             <button type="button" class="btn" id="submit">Submit</button>    
         </div>
         <textarea name="output-area" id="output-area" cols="140" rows="10" readonly="true" placeholder="Your output" class="mx-auto my-4  d-block"></textarea>
     </div>
     <%- include('partials/footer') -%>
+
     <script src="./javascripts/compiler.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
+        
 </body>
 
 </html>

@@ -18,6 +18,10 @@ let learnerModel = require("./model/learner");
 let instructorModel = require("./model/instructor");
 let companyModel = require("./model/company");
 let chatModel = require("./model/chat");
+const fs = require("fs");
+const { exec, execSync } = require("child_process");
+const { stderr } = require("process");
+const { route } = require("express/lib/application");
 
 const app = express();
 const server = http.createServer(app);
@@ -718,5 +722,73 @@ app.get("/learner-chat-room", function (req, res) {
     res.redirect("home-login");
   }
 });
+
+
+
+const eval = (code, lang) => {
+  if(lang === "cpp"){
+    fs.writeFileSync("./Compilation/eval.cpp", code);
+    let childp1
+    try{
+      childp1 = execSync("g++ ./Compilation/eval.cpp -o eval")
+    }catch(err){
+      return err.stderr.toString();
+    }
+
+    try {
+        let childp2 = execSync(".\\eval.exe < ./Compilation/input.txt");
+        return childp2.toString() ;
+    }
+    catch(err) {
+        return err.stderr.toString();
+    }
+  }
+  if(lang === "py"){
+    fs.writeFileSync("./Compilation/evall.py", code);
+    try {
+        let childp2 = execSync("py ./Compilation/evall.py < ./Compilation/input.txt");  
+        return childp2.toString() ;
+    }
+    catch(err) {
+        return err.stderr.toString();
+    }
+  }
+  if(lang === "c"){
+    fs.writeFileSync("./Compilation/evalC.c", code);
+    let childp1;
+    try {
+        childp1 = execSync("gcc ./Compilation/evalC.c");
+    }
+    catch(err) {
+        return err.stderr.toString();
+    }
+      try {
+        let childp2 = execSync(".\\a.exe < ./Compilation/input.txt");
+        return childp2.toString() ;
+    }
+      catch(err) {
+          return err.stderr.toString();
+      }
+    }
+
+  if(lang === "js"){
+    fs.writeFileSync("./Compilation/evalJs.js", code);
+    let childp1;
+    try {
+        childp1 = execSync("node ./Compilation/evalJs.js < ./Compilation/input.txt");
+        return childp1.toString() ;
+    }
+    catch(err) {
+      console.log(err);
+        return err.stderr.toString();
+    }
+  }
+};
+
+app.post('/get-result',(req,res)=>{
+  const {code,lang}=req.body;
+  res.status(200).json(eval(code,lang));
+})
+
 
 server.listen(8080);
