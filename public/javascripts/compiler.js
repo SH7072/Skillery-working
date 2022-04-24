@@ -1,22 +1,45 @@
-const axios = require('axios');
+const editor = ace.edit("code-area");
+editor.setTheme("ace/theme/monokai");
+editor.session.setMode("ace/mode/javascript");
+// editor.session.setMode("ace/mode/c_cpp");
+const output=document.querySelector('#output-area')
+function findLang() {
+  const option = document.getElementById('language-select').value
+  if (option == 1) {
+    return 'js'
+  }
+  else if (option == 2) {
+    return 'py'
+  }
+  else if (option == 3) {
+    return 'c'
+  }
+  else if (option == 4) {
+    return 'cpp'
+  }
+  else if (option == 5) {
+    return 'java'
+  }
+}
 
-var submit = document.getElementById("submit");
 
-submit.addEventListener("click", function(e) {
-    await axios("https://codequotient.com/api/executeCode", {
+submit.addEventListener("click", function (e) {
+  fetch("/get-result", {
     method: 'POST',
-    mode: 'no-cors',
     headers: {
-      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     },
-    withCredentials: true,
-    credentials: 'same-origin',
-    body:JSON.stringify({
-          code:`${code}`,
-          langId:lang
-        })
-  }).then(response => {
-    console.log(response.data);
-  })
+    body: JSON.stringify({
+      code: editor.getValue(),
+      lang: findLang()
+    })
+  }).then(response => response.json())
+    .then(json=>{
+      console.log(json);
+      output.innerHTML=json
+    }).catch(err=>{
+      console.log(err)
+      output.innerHTML=err;
+    });
 })
+
