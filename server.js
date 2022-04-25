@@ -449,12 +449,13 @@ app.get("/learner-chat-home", function (req, res) {
   }
 });
 
-app.get("/learner-profile", function (req, res) {
+app.get("/learner-profile",async function (req, res) {
   const token = req.cookies.check;
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    // let learner = await Learner.findOne({ user.username }).lean()
-    res.render("learner-profile", { learner: user });
+    let user1 = await Learner.findById(user.id).lean()
+    console.log(user1)
+    res.render("learner-profile", { learner: user1 });
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -767,6 +768,25 @@ app.post('/updatescore', async (req, res, next) => {
     }
 })
 })
+
+app.post('/updateprofile', async (req, res, next) => {
+  let {id, name, degree, college} = req.body;
+  console.log(id,name,degree,college);
+  let query = {
+    'fullname': name,
+    'degree': degree,
+    'college': college
+  };
+  Learner.findByIdAndUpdate(id,query,(err,data)=>{
+    if (err){
+        console.log(err)
+    }
+    else{
+        console.log("update successful");
+    }
+})
+})
+
 
 app.post('/deleteinstructor', async (req, res, next) => {
   Instructor.deleteOne({_id: req.body.id},(err)=>{

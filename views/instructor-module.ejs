@@ -26,8 +26,8 @@
         <% if(user=="learner" ) { %>
           <%- include("partials/learner-navbar.ejs") -%>
             <% } %>
-              <br><br>
 
+<div class="structure">
 
               <div class="heading">
                 <div class="course">
@@ -37,8 +37,7 @@
                       <% if(topic=="webdev" ){ %>
                         <h1 class="haha">Web Development</h1>
                         <% } %>
-                          <h4 class="haha">-</h4>
-                          <h4 class="haha">13 Sections</h4>
+                         
                 </div>
               </div>
 
@@ -100,11 +99,14 @@
                     <% } %>
                     <% })%>
                     
+                    <div class="text-center pt-1 mb-5 pb-1">
                       <button id="addday" 
                       <% if (user=="learner"){ %>
                         style="display:none"
                         <% } %>>
-                        Add day</button>
+                          Add Day   </button>
+                      </div>
+
                       <div class="loginPopup">
                         <div class="formPopup" id="popupForm">
                           <form action="" name="addDay" class="formContainer" onsubmit = "validate();">
@@ -129,6 +131,7 @@
                           </form>
                         </div>
                       </div>
+                    </div>
                         
                         <%- include("partials/footer.ejs") -%>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"

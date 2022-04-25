@@ -12,18 +12,20 @@ document.getElementById("edit").addEventListener("click", function(e){
 document.getElementById("submit").addEventListener("click", async function(e){
     e.preventDefault();
 
+    const id = document.getElementById("id").value;
     const name = document.getElementById("name").value;
     const degree = document.getElementById("Degree").value;
     const college = document.getElementById("College").value;
 
-    console.log(name,degree,college);
+    console.log(id,name,degree,college);
 
-    const result = await fetch("/api/", {
+    const result = await fetch('http://localhost:8080/updateprofile', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+            id,
             name,
             degree,
             college
