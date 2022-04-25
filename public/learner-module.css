@@ -14,6 +14,11 @@
 .square:hover{background-color:rgb(163, 160, 160);
   color: white;
 }
+
+.structure{
+  margin: 15%;
+  margin-top: 5%;
+}
 .h5{
   justify-content: center;
   text-align: center;
