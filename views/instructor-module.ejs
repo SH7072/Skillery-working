@@ -72,6 +72,7 @@
                       </div>
                     </div>
                     <% })%>
+                    <% if (user=="instructor" ) { %>
                       <button id="addday">Add day</button>
                       <div class="loginPopup">
                         <div class="formPopup" id="popupForm">
@@ -83,86 +84,10 @@
                             <label for="link">Add Homework</label><br>
                             <input type="text" id="homework" placeholder="Add Homework" name="homework" required>
                             <button type="submit" class="btn cancel" id="submit">Submit</button>
+                            <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
                           </form>
                         </div>
-<<<<<<< HEAD
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-
-              <% records.forEach(function(row){ %>
-                <div class="row rowl">
-                    <div class="col-3 overflow-auto">
-                      <%= row.topicName %>
-                    </div>
-                    <a class="col-5 overflow-auto">
-                      <%= row.lectureLink %>
-                    </a>
-                    <a class="col-2 overflow-auto">
-                      <%= row.homeworkLink %>
-                    </a>
-                  </form>
-                </div>
-                </div>
-            <% })%>
-              
-               
-              <button id="addday">Add day</button>
-              <div class="loginPopup">
-                <div class="formPopup" id="popupForm">
-                  <form action="" class="formContainer">
-                    <label for="link">Add Lecture Link</label><br>
-                    <input type="text" id="link" placeholder="Add Lecture Link" name="link" required>
-                    <label for="link">Add Homework</label><br>
-                    <input type="text" id="homework" placeholder="Add Homework" name="homework" required>
-                    <button type="submit" class="btn cancel" id="submit">Submit</button>
-                  </form>
-                </div>
-              <!-- <%- include("partials/footer.ejs") -%> -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-                  integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-                  crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-                  integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-                  crossorigin="anonymous"></script>
-                <script>
-                  $('.owl-carousel').owlCarousel({
-                    loop: true,
-                    nav: true,
-                    margin: 10,
-                    navSlide: true,
-                    dots: false,
-                    stagePadding: 0,
-                    responsive: {
-                      0: {
-                        items: 1
-                      },
-                      500: {
-                        items: 3
-                      },
-                      800: {
-                        items: 5
-                      },
-                      1000: {
-                        items: 7
-                      }
-                    }
-                  })</script>
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                  crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                  crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                  crossorigin="anonymous"></script>
-                <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
-                <script src="./Bootstrap/js/bootstrap.js"></script>
-                <script src="./javascripts/module.js"></script>
-=======
+                        <% } %>
                         <!-- <%- include("partials/footer.ejs") -%> -->
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                           integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -205,7 +130,6 @@
                         <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
                         <script src="./Bootstrap/js/bootstrap.js"></script>
                         <script src="./javascripts/module.js"></script>
->>>>>>> 0a4baa912af04faf3793fd3d53061c9bd02db87c
 </body>
 
 </html>
