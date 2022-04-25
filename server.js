@@ -629,13 +629,52 @@ app.get("/instructor-home", function (req, res) {
   }
 });
 
-app.get("/instructor-module", function (req, res) {
+app.get("/instructor-module-webdev", function (req, res) {
   const token = req.cookies.check;
   try {
     let day = dayModel.find({});
     day.exec(function (err, data) {
       if (err) throw err;
-      res.render("instructor-module", { user:"instructor", records: data });
+      res.render("instructor-module", { user:"instructor", records: data ,topic: "webdev" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
+});
+app.get("/learner-module-webdev", function (req, res) {
+  const token = req.cookies.check;
+  try {
+    let day = dayModel.find({});
+    day.exec(function (err, data) {
+      if (err) throw err;
+      res.render("instructor-module", { user:"learner", records: data ,topic: "webdev" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
+});
+app.get("/learner-module-dsa", function (req, res) {
+  const token = req.cookies.check;
+  try {
+    let day = dayModel.find({});
+    day.exec(function (err, data) {
+      if (err) throw err;
+      res.render("instructor-module", { user:"learner", records: data ,topic: "dsa" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
+});
+app.get("/instructor-module-dsa", function (req, res) {
+  const token = req.cookies.check;
+  try {
+    let day = dayModel.find({});
+    day.exec(function (err, data) {
+      if (err) throw err;
+      res.render("instructor-module", { user:"instructor", records: data ,topic: "dsa" });
     });
   } catch (error) {
     console.log(error);

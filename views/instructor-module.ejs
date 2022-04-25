@@ -31,7 +31,12 @@
 
               <div class="heading">
                 <div class="course">
-                  <h1 class="haha">Data Structures and Algorithms</h1>
+                  <% if(topic=="dsa"){ %>
+                    <h1 class="haha">Data Structures and Algorithms</h1>
+                    <% } %>
+                    <% if(topic=="webdev"){ %>
+                      <h1 class="haha">Web Development</h1>
+                    <% } %>
                   <h4 class="haha">-</h4>
                   <h4 class="haha">13 Sections</h4>
                 </div>
