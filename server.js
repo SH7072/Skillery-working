@@ -50,7 +50,6 @@ app.use(cookieParser());
 io.on("connection",socket => {  
 
   console.log("user connected");
-ṭ
   socket.on("chat message", function(data){
     io.emit("received", data);
     let chatMessage = new Chat({ message: data.msg, sender: data.username });
@@ -245,11 +244,13 @@ app.post("/api/instructor-register", async (req, res) => {
 });
 
 app.post("/api/addLecture", async (req, res) => {
-  const {lectureLink, homeworkLink} = req.body;
+  const {topicName, lectureLink, homeworkLink, flag} = req.body;
   try {
     const response = await Day.create({
+      topicName,
       lectureLink, 
-      homeworkLink
+      homeworkLink,
+      flag
     });
     console.log("Day created successfully: ", response);
   } catch (error) {

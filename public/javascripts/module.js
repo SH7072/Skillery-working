@@ -16,8 +16,18 @@ document.getElementById("addday").addEventListener("click", function(e){
 document.getElementById("submit").addEventListener("click", async function(e){
     e.preventDefault();
 
+    const topicName = document.getElementById("topic").value;
     const lectureLink = document.getElementById("link").value;
     const homeworkLink = document.getElementById("homework").value;
+    const course = document.getElementById("course").value;
+    let flag;
+
+    if(course == "Data structures and Algorithms"){
+        flag = 0
+    }
+    else{
+        flag = 1
+    }
 
     console.log(lectureLink, homeworkLink);
 
@@ -27,11 +37,14 @@ document.getElementById("submit").addEventListener("click", async function(e){
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+            topicName,
             lectureLink,
-            homeworkLink
+            homeworkLink,
+            flag
         }),
       }).then((res) => res.json());
       closeForm();
+      window.location.reload();
 })
 var acc = document.getElementsByClassName("accordion");
 var i;
