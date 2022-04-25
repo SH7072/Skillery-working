@@ -70,11 +70,15 @@
                       </div>
                     </div>
                     <% })%>
-                    <% if (user=="instructor" ) { %>
-                      <button id="addday">Add day</button>
+                    
+                      <button id="addday" 
+                      <% if (user=="learner"){ %>
+                        style="display:none"
+                        <% } %>>
+                        Add day</button>
                       <div class="loginPopup">
                         <div class="formPopup" id="popupForm">
-                          <form action="" class="formContainer">
+                          <form action="" name="addDay" class="formContainer" onsubmit = "validate();">
                             <label for="link">Topic</label><br>
                             <input type="text" id="topic" placeholder="Add Lecture Topic" name="topic" required>
                             <label for="link">Add Lecture Link</label><br>
@@ -85,8 +89,9 @@
                             <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
                           </form>
                         </div>
-                        <% } %>
-                        <!-- <%- include("partials/footer.ejs") -%> -->
+                      </div>
+                        
+                        <%- include("partials/footer.ejs") -%>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                           integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
                           crossorigin="anonymous"></script>
