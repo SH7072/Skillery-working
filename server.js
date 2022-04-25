@@ -453,9 +453,8 @@ app.get("/learner-profile",async function (req, res) {
   const token = req.cookies.check;
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    let user1 = await Learner.findById(user.id).lean()
-    console.log(user1)
-    res.render("learner-profile", { learner: user1 });
+    let learner = await Learner.findOne({username: user.username }).lean()
+    res.render("learner-profile", { learner: learner });
   } catch (error) {
     console.log(error);
     res.redirect("home-login");
@@ -770,21 +769,31 @@ app.post('/updatescore', async (req, res, next) => {
 })
 
 app.post('/updateprofile', async (req, res, next) => {
-  let {id, name, degree, college} = req.body;
-  console.log(id,name,degree,college);
-  let query = {
-    'fullname': name,
-    'degree': degree,
-    'college': college
-  };
-  Learner.findByIdAndUpdate(id,query,(err,data)=>{
-    if (err){
-        console.log(err)
-    }
-    else{
-        console.log("update successful");
-    }
+  let {name, degree, college, year} = req.body;
+  console.log(name,degree,college);
+  const token = req.cookies.check;
+  try {
+        const user = jwt.verify(token, JWT_SECRET);
+          let query = {
+            'fullname': name,
+            'degree': degree,
+            'college': college,
+            'passing': year
+          };
+          Learner.findByIdAndUpdate(user.id,query,(err,data)=>{
+            if (err){
+                console.log(err)
+            }
+            else{
+              console.log("update successful");
+              return res.json({status : "ok"});
+            }
 })
+
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
 })
 
 

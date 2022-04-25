@@ -32,17 +32,19 @@
                 <%= learner.username %>
                     <button id="edit"> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>    
             
-                <div class="loginPopup">
+                <div class="loginPopup" style="font-size: 20px;">
                     <div class="formPopup" id="popupForm">
                         <form action="" class="formContainer">
                             <input type="text" id="id" name="id" value="<%= learner.id %>" style="display: none
                             ">
-                            <label for="link">Name</label><br>
+                            <label for="name">Full Name</label><br>
                             <input type="text" id="name" placeholder="Name" name="Name" required>
-                            <label for="link">Degree</label><br>
+                            <label for="degree">Degree</label><br>
                             <input type="text" id="Degree" placeholder="Degree" name="Degree" required>
-                            <label for="link">College</label><br>
+                            <label for="college">College</label><br>
                             <input type="text" id="College" placeholder="College" name="College" required>
+                            <label for="year">Passing year</label><br>
+                            <input type="text" id="year" placeholder="Passing year" name="year" required>
                             <button type="submit" class="btn cancel" id="submit">Submit</button>
                             <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
                         </form>

@@ -62,7 +62,11 @@
     .progress-bar {
         background-color: rgb(255, 120, 30);
     }
-
+    .rowl button{
+      color: white;
+      border: none;
+      background:none;
+  }
     .openBtn {
         display: flex;
         justify-content: left;
@@ -76,7 +80,7 @@
         display: none;
         position: fixed;
         left: 50%;
-        top: 10%;
+        top: 5%;
         transform: translate(-50%, 5%);
         border: 3px solid #999999;
         z-index: 9;
@@ -116,3 +120,5 @@
       .openButton:hover {
         opacity: 1;
       }
+
+      
