@@ -1,2 +1,1 @@
-const k='veef'
-console.log(k)
+console.log("hello")
