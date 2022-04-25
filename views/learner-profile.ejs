@@ -28,9 +28,25 @@
                 <img src="../../../resources/avataricons/2co-f.svg" alt="Name">
             </div>
             <div class="col-md-9 order-md-1" id="Sname">
-                <!-- Tanmay Rajesh Umredkar -->
+                
                 <%= learner.username %>
-                <button> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>
+                    <button id="edit"> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>    
+            
+                <div class="loginPopup">
+                    <div class="formPopup" id="popupForm">
+                        <form action="" class="formContainer">
+                            <label for="link">Name</label><br>
+                            <input type="text" id="name" placeholder="Name" name="Name" required>
+                            <label for="link">Degree</label><br>
+                            <input type="text" id="Degree" placeholder="Degree" name="Degree" required>
+                            <label for="link">College</label><br>
+                            <input type="text" id="College" placeholder="College" name="College" required>
+                            <button type="submit" class="btn cancel" id="submit">Submit</button>
+                            <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="about">
@@ -59,6 +75,60 @@
     </div>
     </div>
     </div>
+
+
+    <!-- <%- include("partials/learner-navbar.ejs") -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 order-md-2" id="profilepic">
+                <img src="../../../resources/avataricons/2co-f.svg" alt="Name">
+                <div class="col-md-9 order-md-1" id="Sname">
+                    
+                    <%= learner.username %>
+                    <button id="edit"> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>    
+                </div>                  
+                    <div class="loginPopup">
+                        <div class="formPopup" id="popupForm">
+                            <form action="" class="formContainer">
+                                <label for="link">Name</label><br>
+                                <input type="text" id="name" placeholder="Name" name="Name" required>
+                                <label for="link">Degree</label><br>
+                                <input type="text" id="Degree" placeholder="Degree" name="Degree" required>
+                                <label for="link">College</label><br>
+                                <input type="text" id="College" placeholder="College" name="College" required>
+                                <button type="submit" class="btn cancel" id="submit">Submit</button>
+                                <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        <div class="about">
+            <div class="box">
+                <div class="heading">Full Name</div>
+                <p><%= learner.fullname %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Degree</div>
+                <p><%= learner.degree %></p>
+            </div>
+            <div class="box">
+                <div class="heading">College</div>
+                <p><%= learner.college %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Passing year</div>
+                <p><%= learner.passing %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Scores</div>
+                <p>DSA : <%= learner.dsa %></p>
+                <p>Web Development : <%= learner.web %></p>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div> -->
     <%- include('partials/footer') -%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -69,6 +139,8 @@
     <script src="content.js"></script>
     <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
     <script src="../../../Bootstrap/js/bootstrap.js"></script>
+    <script src="./javascripts/profile.js"></script>
+
 </body>
 
 </html>

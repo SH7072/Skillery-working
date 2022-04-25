@@ -594,6 +594,15 @@ app.get("/company-learnerslist", function (req, res) {
       if(req.query.webasc){
         data.sort((a, b) => (Number(a.web) > Number(b.web)) ? 1 : -1)
       }
+      if(req.query.webdesc){
+        data.sort((a, b) => (Number(a.web) < Number(b.web)) ? 1 : -1)
+      }
+      if(req.query.dsaasc){
+        data.sort((a, b) => (Number(a.dsa) > Number(b.dsa)) ? 1 : -1)
+      }
+      if(req.query.dsadesc){
+        data.sort((a, b) => (Number(a.dsa) < Number(b.dsa)) ? 1 : -1)
+      }
       res.render("company-learnerslist", { records: data});
     });
   } catch (error) {
