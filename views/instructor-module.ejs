@@ -42,9 +42,8 @@
                 </div>
               </div>
 
-              <% var k=1; %>
+              <% let k=1; %>
                 <% records.forEach(function(row){ %>
-
                   <button class="accordion">
                     <div class="day">Day <%= k %>
                     </div>
@@ -62,7 +61,6 @@
                         </div><a class="col-2 overflow-auto" href="<%= row.homeworkLink %>">
                           Homework Link <i class="fa-solid fa-link"></i>
                         </a>
-
                         <div class="col-4 order-xs-4 text-end">
                           <% if(user=="instructor" ) { %>
                             <a href="instructor-homeworklist"><button class="meet">Check HomeWork <i
