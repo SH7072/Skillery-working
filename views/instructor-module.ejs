@@ -44,37 +44,74 @@
 
               <% let k=1; %>
                 <% records.forEach(function(row){ %>
-                  <button class="accordion">
-                    <div class="day">Day <%= k %>
-                    </div>
-                    <div class="col-3 overflow-auto">
-                      <%= row.topicName %>
-                    </div>
-                  </button>
-                  <% k++; %>
-                    <div class="panel">
-                      <div class="row">
-                        <div class="col-4 order-xs-4 text-left">
-                          <a class="col-5 overflow-auto" href="<%= row.lectureLink %>">
-                            Lecture Link <i class="fa-solid fa-link"></i>
-                          </a>
-                        </div><a class="col-2 overflow-auto" href="<%= row.homeworkLink %>">
-                          Homework Link <i class="fa-solid fa-link"></i>
-                        </a>
-                        <div class="col-4 order-xs-4 text-end">
-                          <% if(user=="instructor" ) { %>
-                            <a href="instructor-homeworklist"><button class="meet">Check HomeWork <i
-                                  class="fa-solid fa-clipboard-check"></i></button></a>
-                            <% } %>
+                    <% if(topic == 'dsa' && row.flag == 0){ %>
+                      <button class="accordion">
+                        <div class="day">Day <%= k %>
                         </div>
-                      </div>
-                    </div>
+                        <div class="col-3 overflow-auto">
+                          <%= row.topicName %>
+                        </div>
+                      </button>
+                      <% k++; %>
+                        <div class="panel">
+                          <div class="row">
+                            <div class="col-4 order-xs-4 text-left">
+                              <a class="col-5 overflow-auto" href="<%= row.lectureLink %>">
+                                Lecture Link <i class="fa-solid fa-link"></i>
+                              </a>
+                            </div><a class="col-2 overflow-auto" href="<%= row.homeworkLink %>">
+                              Homework Link <i class="fa-solid fa-link"></i>
+                            </a>
+                            <div class="col-4 order-xs-4 text-end">
+                              <% if(user=="instructor" ) { %>
+                                <a href="instructor-homeworklist"><button class="meet">Check HomeWork <i
+                                      class="fa-solid fa-clipboard-check"></i></button></a>
+                                <% } %>
+                            </div>
+                          </div>
+                        </div>
+                    <% } %>
+                    <% if(topic == 'webdev' && row.flag == 1){ %>
+                      <button class="accordion">
+                        <div class="day">Day <%= k %>
+                        </div>
+                        <div class="col-3 overflow-auto">
+                          <%= row.topicName %>
+                        </div>
+                      </button>
+                      <% k++; %>
+                        <div class="panel">
+                          <div class="row">
+                            <div class="col-4 order-xs-4 text-left">
+                              <a class="col-5 overflow-auto" href="<%= row.lectureLink %>">
+                                Lecture Link <i class="fa-solid fa-link"></i>
+                              </a>
+                            </div><a class="col-2 overflow-auto" href="<%= row.homeworkLink %>">
+                              Homework Link <i class="fa-solid fa-link"></i>
+                            </a>
+                            <div class="col-4 order-xs-4 text-end">
+                              <% if(user=="instructor" ) { %>
+                                <a href="instructor-homeworklist"><button class="meet">Check HomeWork <i
+                                      class="fa-solid fa-clipboard-check"></i></button></a>
+                                <% } %>
+                            </div>
+                          </div>
+                        </div>
+                    <% } %>
                     <% })%>
                     <% if (user=="instructor" ) { %>
                       <button id="addday">Add day</button>
                       <div class="loginPopup">
                         <div class="formPopup" id="popupForm">
                           <form action="" class="formContainer">
+                            <% if(topic=="dsa"){ %>
+                              <label for="link">Course</label><br>
+                              <input type="text" id="course" name="course" value="Data structures and Algorithms" readonly>
+                            <% } %>
+                            <% if(topic=="webdev"){ %>
+                              <label for="link">Course</label><br>
+                              <input type="text" id="course" name="course" value="Web development" readonly>
+                            <% } %>
                             <label for="link">Topic</label><br>
                             <input type="text" id="topic" placeholder="Add Lecture Topic" name="topic" required>
                             <label for="link">Add Lecture Link</label><br>
