@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,138 +19,68 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="learners-list.css">
 </head>
+
 <body>
     <%- include('partials/instructor-navbar'); -%>
 
-    <div>
+        <div>
 
 
-        <div class="mx-auto my-3" style="width : 80vw ;max-height : 80vh; overflow-y : scroll">
-            <div >
-                <div class="leaderboard">
-                    <div class="head">
-                        <h1>Homework Submissions</h1>
-                    </div>
-                    <div class="body p-2">
-                        <div class="row ">
-                            <div class="col-4">
-                                Full Name
-                            </div>
-                            <div class="col-1 ">
-                            </div>
-                            <div class="col-5 ">
-                                HomeWork
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                    Score
-                                </div>
-                            </div>
-                            
+            <div class="mx-auto my-3" style="width : 80vw ;max-height : 80vh; overflow-y : scroll">
+                <div>
+                    <div class="leaderboard">
+                        <div class="head">
+                            <h1>Homework Submissions</h1>
                         </div>
-                        <div class="row rowl">
-                            <div class="col-4">
-                                Shubham Chandwani
-                            </div>
-                            <div class="col-1 ">
-                            </div>
-                            <div class="col-5 ">
-                                HomeWork
-                                <button class="fav-btn"><i class="fa-solid fa-upload"></i></button>
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                   Score
+                        <div class="body p-2">
+                            <div class="row  justify-content-center">
+                                <div class="col-4">
+                                    Full Name
                                 </div>
-                            </div>
-                            
-                        </div>
+                                <div class="col-3">
+                                    DSA Score
 
-                        <div class="row rowl">
-                            <div class="col-4">
-                                Abhay
-                            </div>
-                            <div class="col-1 ">
-                            </div>
-                            <div class="col-5 ">
-                                HomeWork
-                                <button class="fav-btn"><i class="fa-solid fa-upload"></i></button>
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                   Score
+                                </div>
+                                <div class="col-3">
+                                    Web Score
+                                    
                                 </div>
                             </div>
-                            
-                        </div>
-
-                        <div class="row rowl">
-                            <div class="col-4">
-                                Tanmay U
-                            </div>
-                            <div class="col-1 ">
-                            </div>
-                            <div class="col-5 ">
-                                HomeWork
-                                <button class="fav-btn"><i class="fa-solid fa-upload"></i></button>
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                   Score
+                            <%if (records.length >0){ %>
+                                <% records.forEach(function(row){ %>
+                                    <div class="row rowl justify-content-center">
+                                        <div class="col-4">
+                                            <%= row.fullname %>
+                                        </div>
+                                        <div class="col-3">
+                                        <%= row.dsa %>
+                                        </div>
+                                        <div class="col-3">
+                                        <%= row.web %>
+                                        </div>
+                                    </div>
+                                <% })}else{ %>
+                                  <div class="row rowl">
+                                    <div class="col-11">
+                                        "No records found"
+                                     </div>
                                 </div>
-                            </div>
-                            
+                            <% } %>
                         </div>
-
-                        <div class="row rowl">
-                            <div class="col-4">
-                                Ashutosh Rawat
-                            </div>
-                            <div class="col-1 ">
-                            </div>
-                            <div class="col-5 ">
-                                HomeWork
-                                <button class="fav-btn"><i class="fa-solid fa-upload"></i></button>
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                   Score
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row rowl">
-                            <div class="col-4">
-                                Tanmay Pawar
-                            </div>
-                            <div class="col-1 ">
-                            </div>
-                            <div class="col-5 ">
-                                HomeWork
-                                <button class="fav-btn"><i class="fa-solid fa-upload"></i></button>
-                            </div>
-                            <div class="col-2">
-                                <div class="score mobHide">
-                                   Score
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
                     </div>
                 </div>
             </div>
+
         </div>
-      
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous"></script>
-    <script src="script.js"></script> 
-  <script src="../../../../Bootstrap/js/bootstrap.js"></script>
-    <script src="../script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+        <script src="../../../../Bootstrap/js/bootstrap.js"></script>
+        <script src="../script.js"></script>
 </body>
+
 </html>

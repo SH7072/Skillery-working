@@ -587,10 +587,13 @@ app.get("/company-home", function (req, res) {
 app.get("/company-learnerslist", function (req, res) {
   const token = req.cookies.check;
   try {
-    let learner = learnerModel.find({});
+    let learner = learnerModel.find({});   
     learner.exec(function (err, data) {
       if (err) throw err;
-      res.render("company-learnerslist", { records: data });
+      if(req.query.webasc){
+        data.sort((a, b) => (Number(a.web) > Number(b.web)) ? 1 : -1)
+      }
+      res.render("company-learnerslist", { records: data});
     });
   } catch (error) {
     console.log(error);
@@ -687,10 +690,10 @@ app.get("/instructor-module-dsa", function (req, res) {
 app.get("/instructor-homeworklist", function (req, res) {
   const token = req.cookies.check;
   try {
-    let instructor = instructorModel.find({});
-    instructor.exec(function (err, data) {
+    let learner = learnerModel.find({});
+    learner.exec(function (err, data) {
       if (err) throw err;
-      res.render("instructor-homeworklist");
+      res.render("instructor-homeworklist",{records: data });
     });
   } catch (error) {
     console.log(error);
