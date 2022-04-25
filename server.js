@@ -742,6 +742,22 @@ app.post('/deletestudent', async (req, res, next) => {
   next();
 })
 
+app.post('/updatescore', async (req, res, next) => {
+  let {id, dsa, web} = req.body;
+  let query = {
+    'dsa': dsa,
+    'web': web
+  };
+  Learner.findByIdAndUpdate(id,query,(err,data)=>{
+    if (err){
+        console.log(err)
+    }
+    else{
+        console.log("update successful");
+    }
+})
+})
+
 app.post('/deleteinstructor', async (req, res, next) => {
   Instructor.deleteOne({_id: req.body.id},(err)=>{
     if(err){
