@@ -46,3 +46,23 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+  
+  function validate() {
+      
+    if( document.addDay.topic.value == "" ) {
+       alert( "Topic Missing" );
+       document.addDay.Name.focus() ;
+       return false;
+    }
+    if( document.addDay.link.value == "" ) {
+       alert( "Lecture Link Missing" );
+       document.addDay.Name.focus() ;
+       return false;
+    }
+    if( document.addDay.homework.value == "" ) {
+       alert( "HomeWork Link Missing" );
+       document.addDay.Name.focus() ;
+       return false;
+    }
+    return( true );
+    }
