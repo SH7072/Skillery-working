@@ -726,7 +726,14 @@ app.get("/instructor-learnerslist", function (req, res) {
 });
 
 app.get("/instructor-chat-home", function (req, res) {
-  res.render("chat-home", {user : "instructor"});
+  const token = req.cookies.check;
+  try {
+    const user = jwt.verify(token, JWT_SECRET);
+    res.render("chat-home", { user : "instructor", learner: user });
+  } catch (error) {
+    console.log(error);
+    res.redirect("home-login");
+  }
 });
 
 
@@ -736,9 +743,6 @@ app.get("/instructor-compiler", function (req, res) {
 });
 
 
-app.get("chat-home", function (req, res) {
-  res.render("chat-home");
-})
 app.get("/contact-us", function (req, res) {
   res.render("contact-us");
 });
