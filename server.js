@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const express = require("express");
 const http = require('http');
 const path = require("path");
@@ -32,13 +36,13 @@ const JWT_SECRET = "abhs@vb#s3g%f$fgmnabkjufyfc@ijhu#HB$BHB$b5%jhbB%gb%Hg%b";
 
 mongoose
   .connect(
-    "mongodb+srv://array2002:Abhay%40123@cluster0.gcftg.mongodb.net/login-app-db",
+    process.env.DATABASE_URL,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
   )
-  .then((d) => console.log("success"));
+  .then((d) => console.log("connection success"));
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
