@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Real-time chat</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="./chat-room.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
+    <%- include(`partials/${user}-navbar`); -%>
+    <div class="chat_window">
+    <div class="top_menu">
+        <div class="buttons">
+            <div class="button close"></div>
+            <div class="button minimize"></div>
+            <div class="button maximize"></div>
+        </div>
+        <div class="title">Chat</div>
+    </div>
+    <ul id ="messages" class="messages">
+        <% if(records.length>0){ %>
+            <% records.forEach(function(row){ %>
+              <li>
+                <%= row.message %>
+              </li>
+              <span>
+                Sent by
+                <%= row.sender %>
+              </span>
+           <% }) %>
+        <% } %>
+    </ul>
+     
+  <div class="bottom_wrapper clearfix">
+   <i id="typing"></i>
+    <form id="form">
+        <div class="message_input_wrapper">
+            <input id="message" class="message_input" placeholder="Type your message here..." />
+        </div>
+        <button class="send_message">
+           Send
+        </button>
+      </form>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rexeze/formatTimeStamp/src/index-cdn.js"></script>
+    <script src="./javascripts/chat.js"></script>
+  </body>
+</html>

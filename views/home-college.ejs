@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="shortcut icon" href="./resources/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Colleges</title>
+</head>
+
+<body>
+    <%- include('partials/navbar',{active: "college"}); -%>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Bridge the
+                campus-to-industry gap.</h1>
+            <p>Prepare your students for the in-demand tech skills.</p>
+                <p>● In Demand Courses</p>
+                    <p>● Industry Leading Learning Platform</p>
+                    <p>● Analytics & Reporting</p>
+        <a href="/contact-us">
+            <button>Get in touch</button>
+        </a>
+        </div>
+    </div>
+
+    <div class="row m-5 ">
+        <div class="col-sm text-center">
+            <img src="./resources/curriculum.svg" alt="" class = "headerImages">
+            <h3 text>Proven Curriculum</h3>
+            <p>Deep analysis of Industry needs has been done in designing each CodeQuotient program. We have produced top-quality developers through our hands-on curriculum. All our programs along with customization options will be available to your students.</p>
+        </div>
+        <div class="col-sm text-center">
+            <img src="./resources/industry.svg" alt="" class = "headerImages">
+            <h3>Industry-Leading Learning Platform</h3>
+            <p>Our smart learning platform is just a plug-in away for your students and teachers. It includes hundreds of hours of reading content, video tutorials, assignments, projects and all of this integrated with students’ performance analytics.</p>
+        </div>
+        <div class="col-sm text-center">
+            <img src="./resources/employer.svg" alt="" class = "headerImages">
+            <h3>Strong Employer Network</h3>
+            <p>We have a network of more than 100 companies which varies from Startups to the Fortune 500, who regularly hire graduates of CodeQuotient-powered programs. We are consistently adding more companies in our portfolio.</p>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <h1 style="text-align: center">What We offer</h1>
+                <p style="text-align: center">Enable 360 degree growth for your students with wholesome offerings</p>
+                <br><br><div class="row featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h3>Online Live Learning</h3>
+                <p>Your students can learn online, with hands-on, real-time support from CodeQuotient mentors and virtual collaboration with classmates. Our Live classrooms are backed by mentoring sessions and collaborative project based learning.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid" src="./resources/livelearning.jpeg" alt="">
+            </div>
+        </div>
+        <div class="row featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h3>On Campus</h3>
+                <p>Establish a coding academy at your campus and allow your students to take advantage of our high-quality industry oriented tech training. The 12 weeks program is delivered by selected instructors and is available in part-time and hybrid options also.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="img-fluid" src="./resources/oncampus.jpeg" alt="">
+            </div>
+        </div>
+        <div class="row featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h3>Future ready
+                    Learning Platform</h3>
+                
+                <p>Get access to our learning platform, that includes hundreds of hours of reading content, video tutorials, assignments, projects and all of this integrated with students’ performance analytics.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid" src="./resources/selection.jpg" alt="">    
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') -%>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

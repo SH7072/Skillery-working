@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./compiler.css">
+    <link rel="shortcut icon" href="./resources/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7740605ddf.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7740605ddf.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" integrity="sha512-6ts6Fu561/yzWvD6uwQp3XVYwiWNpWnZ0hdeQrETqtnQiGjTfOS06W76aUDnq51hl1SxXtJaqy7IsZ3oP/uZEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+    
+    <title>Compiler</title>
+</head>
+
+<body>
+    <%- include(`partials/${user}-navbar`); -%>
+    <div class="main-container text-center">
+        <h2>Code, Compile & Run</h2>
+        <p class="sub-heading">Compile & run your code with the Skillery online IDE. Our online compiler supports multiple programming languages like C,Python, C++,  Javascript, and many more.</p>
+        <div name="code-area" id="code-area"  placeholder="Write your code" class="mx-auto my-4 d-block" style="width: 70%; height: 500px;"  ></div>
+        <div class="m-auto">
+            <select name="form-select" id="language-select">
+                <option value="1">Javascript</option>
+                <option value="2">Python</option>
+                <option value="3">C</option>
+                <option value="4">CPP</option>
+                <option value="5">JAVA</option>
+            </select>
+            <button type="button" class="btn" id="submit">Submit</button>    
+        </div>
+        <textarea name="output-area" id="output-area" cols="140" rows="10" readonly="true" placeholder="Your output" class="mx-auto my-4  d-block"></textarea>
+    </div>
+    <%- include('partials/footer') -%>
+
+    <script src="./javascripts/compiler.js"></script>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+        
+</body>
+
+</html>

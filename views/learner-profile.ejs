@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="shortcut icon" href="../../../resources/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../../Bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+
+    <%- include("partials/learner-navbar.ejs") -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 order-md-2" id="profilepic">
+                <img src="../../../resources/avataricons/2co-f.svg" alt="Name">
+            </div>
+            <div class="col-md-9 order-md-1" id="Sname">
+                
+                <%= learner.username %>
+                    <button id="edit"> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>    
+            
+                <div class="loginPopup" style="font-size: 20px;">
+                    <div class="formPopup" id="popupForm">
+                        <form action="" class="formContainer">
+                            <input type="text" id="id" name="id" value="<%= learner.id %>" style="display: none
+                            ">
+                            <label for="name">Full Name</label><br>
+                            <input type="text" id="name" placeholder="Name" name="Name" required>
+                            <label for="degree">Degree</label><br>
+                            <input type="text" id="Degree" placeholder="Degree" name="Degree" required>
+                            <label for="college">College</label><br>
+                            <input type="text" id="College" placeholder="College" name="College" required>
+                            <label for="year">Passing year</label><br>
+                            <input type="text" id="year" placeholder="Passing year" name="year" required>
+                            <button type="submit" class="btn cancel" id="submit">Submit</button>
+                            <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="about">
+            <div class="box">
+                <div class="heading">Full Name</div>
+                <p><%= learner.fullname %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Degree</div>
+                <p><%= learner.degree %></p>
+            </div>
+            <div class="box">
+                <div class="heading">College</div>
+                <p><%= learner.college %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Passing year</div>
+                <p><%= learner.passing %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Scores</div>
+                <p>DSA : <%= learner.dsa %></p>
+                <p>Web Development : <%= learner.web %></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- <%- include("partials/learner-navbar.ejs") -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 order-md-2" id="profilepic">
+                <img src="../../../resources/avataricons/2co-f.svg" alt="Name">
+                <div class="col-md-9 order-md-1" id="Sname">
+                    
+                    <%= learner.username %>
+                    <button id="edit"> &nbsp&nbsp&nbsp<i class="fa-solid fa-pencil"></i>edit</button>    
+                </div>                  
+                    <div class="loginPopup">
+                        <div class="formPopup" id="popupForm">
+                            <form action="" class="formContainer">
+                                <label for="link">Name</label><br>
+                                <input type="text" id="name" placeholder="Name" name="Name" required>
+                                <label for="link">Degree</label><br>
+                                <input type="text" id="Degree" placeholder="Degree" name="Degree" required>
+                                <label for="link">College</label><br>
+                                <input type="text" id="College" placeholder="College" name="College" required>
+                                <button type="submit" class="btn cancel" id="submit">Submit</button>
+                                <button type="close" class="btn cancel" onclick="closeForm();">Close</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        <div class="about">
+            <div class="box">
+                <div class="heading">Full Name</div>
+                <p><%= learner.fullname %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Degree</div>
+                <p><%= learner.degree %></p>
+            </div>
+            <div class="box">
+                <div class="heading">College</div>
+                <p><%= learner.college %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Passing year</div>
+                <p><%= learner.passing %></p>
+            </div>
+            <div class="box">
+                <div class="heading">Scores</div>
+                <p>DSA : <%= learner.dsa %></p>
+                <p>Web Development : <%= learner.web %></p>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div> -->
+    <%- include('partials/footer') -%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="content.js"></script>
+    <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
+    <script src="../../../Bootstrap/js/bootstrap.js"></script>
+    <script src="./javascripts/profile.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Comfortaa:wght@700&display=swap');
+
+.dashboard{
+    margin: 10px 10% 10px 10%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(92, 92, 92);
+}
+.dashboard .heading1{
+    display:flex;
+    justify-content: center;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Comfortaa', cursive;
+    font-size: 45px;
+    padding-bottom:10px;
+    padding-top:30px;
+    background-color: rgb(255, 130, 98);
+}
+.dashboard .row{
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 0 20px;
+}
+.dashboard .col-sm{
+    display: flex;
+    justify-content: center;
+    margin:15px;
+    width:70%;
+    margin-top:50px;
+    margin-bottom:50px;
+    padding-top:50px;
+    padding-bottom:50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(92, 92, 92);
+}
+.dashboard .col-sm:hover{
+    background-color: rgb(255, 130, 98);
+    color: white;
+}
+.dashboard .icon{
+    display: flex;
+    justify-content: center;
+    font-size:50px;
+    margin-top:20px;
+}
+.dashboard .number{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Comfortaa', cursive;
+}
+
+
+.dashboard2{
+    margin: 10px 10% 10px 10%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(92, 92, 92);
+    background-color: rgb(56, 56, 56);
+    color: white;
+}
+.dashboard2 .heading1{
+    display:flex;
+    justify-content: center;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Comfortaa', cursive;
+    font-size: 45px;
+    padding-bottom:10px;
+    padding-top:30px;
+    background-color: rgb(255, 130, 98);
+}
+.dashboard2 .row{
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 0 20px;
+}
+.dashboard2 .col-sm{
+    display: flex;
+    justify-content: center;
+    margin:15px;
+    width:70%;
+    margin-top:50px;
+    margin-bottom:50px;
+    padding-top:50px;
+    padding-bottom:50px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid 10px rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+.dashboard2 .col-sm:hover{
+    background-color: rgb(255, 130, 98);
+    color: white;
+}
+.dashboard2 .icon{
+    display: flex;
+    justify-content: center;
+    font-size:50px;
+    margin-top:20px;
+}
+.dashboard2 .number{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Comfortaa', cursive;
+}
+.dashboard2 .subtext{
+    display: flex;
+    justify-content: center;
+    margin: 10px 10% 35px 10%;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Comfortaa', cursive;
+}

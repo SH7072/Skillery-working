@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+		<script src="https://kit.fontawesome.com/7740605ddf.js" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./chat-home.css" />
+		<title>Chat Home</title>
+	</head>
+	<body>
+		<%- include(`partials/${user}-navbar`); -%>
+		<div class="join-container">
+			<div class="logo1">
+				<img src="./resources/logo.svg" style="width: 150px;" alt="logo1">
+			</div>
+			<header class="join-header">
+				<h1>Skillery </h1>
+			</header>
+			<main class="join-main">
+				<form action="/learner-chat-room">
+					<div>
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							value="<%= learner.username%>"
+							readonly
+						/>
+					</div>
+					<button type="submit" class="btn1">Join Chat</button>
+				</form>
+			</main>
+		</div>
+		<%- include('partials/footer'); -%>
+	</body>
+</html>
